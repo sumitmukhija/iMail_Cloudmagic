@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675261D23DC490035EB17 /* AppDelegate.swift */; };
+		95E675291D23DC490035EB17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675281D23DC490035EB17 /* ViewController.swift */; };
+		95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752A1D23DC490035EB17 /* Main.storyboard */; };
+		95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752D1D23DC490035EB17 /* Assets.xcassets */; };
+		95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */; };
+		95E6753C1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6753B1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift */; };
+		95E675471D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95E675381D23DC490035EB17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95E6751B1D23DC490035EB17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95E675221D23DC490035EB17;
+			remoteInfo = iMail_CloudmagicTask;
+		};
+		95E675431D23DC490035EB17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95E6751B1D23DC490035EB17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95E675221D23DC490035EB17;
+			remoteInfo = iMail_CloudmagicTask;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail_CloudmagicTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E675261D23DC490035EB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95E675281D23DC490035EB17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95E6752B1D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95E6752D1D23DC490035EB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95E675301D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95E675321D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail_CloudmagicTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E6753B1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMail_CloudmagicTaskTests.swift; sourceTree = "<group>"; };
+		95E6753D1D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail_CloudmagicTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMail_CloudmagicTaskUITests.swift; sourceTree = "<group>"; };
+		95E675481D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95E675201D23DC490035EB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E675341D23DC490035EB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E6753F1D23DC490035EB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95E6751A1D23DC490035EB17 = {
+			isa = PBXGroup;
+			children = (
+				95E675251D23DC490035EB17 /* iMail_CloudmagicTask */,
+				95E6753A1D23DC490035EB17 /* iMail_CloudmagicTaskTests */,
+				95E675451D23DC490035EB17 /* iMail_CloudmagicTaskUITests */,
+				95E675241D23DC490035EB17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95E675241D23DC490035EB17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */,
+				95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */,
+				95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95E675251D23DC490035EB17 /* iMail_CloudmagicTask */ = {
+			isa = PBXGroup;
+			children = (
+				95E675261D23DC490035EB17 /* AppDelegate.swift */,
+				95E675281D23DC490035EB17 /* ViewController.swift */,
+				95E6752A1D23DC490035EB17 /* Main.storyboard */,
+				95E6752D1D23DC490035EB17 /* Assets.xcassets */,
+				95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */,
+				95E675321D23DC490035EB17 /* Info.plist */,
+			);
+			path = iMail_CloudmagicTask;
+			sourceTree = "<group>";
+		};
+		95E6753A1D23DC490035EB17 /* iMail_CloudmagicTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				95E6753B1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift */,
+				95E6753D1D23DC490035EB17 /* Info.plist */,
+			);
+			path = iMail_CloudmagicTaskTests;
+			sourceTree = "<group>";
+		};
+		95E675451D23DC490035EB17 /* iMail_CloudmagicTaskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */,
+				95E675481D23DC490035EB17 /* Info.plist */,
+			);
+			path = iMail_CloudmagicTaskUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95E675221D23DC490035EB17 /* iMail_CloudmagicTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTask" */;
+			buildPhases = (
+				95E6751F1D23DC490035EB17 /* Sources */,
+				95E675201D23DC490035EB17 /* Frameworks */,
+				95E675211D23DC490035EB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iMail_CloudmagicTask;
+			productName = iMail_CloudmagicTask;
+			productReference = 95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95E675361D23DC490035EB17 /* iMail_CloudmagicTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskTests" */;
+			buildPhases = (
+				95E675331D23DC490035EB17 /* Sources */,
+				95E675341D23DC490035EB17 /* Frameworks */,
+				95E675351D23DC490035EB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95E675391D23DC490035EB17 /* PBXTargetDependency */,
+			);
+			name = iMail_CloudmagicTaskTests;
+			productName = iMail_CloudmagicTaskTests;
+			productReference = 95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		95E675411D23DC490035EB17 /* iMail_CloudmagicTaskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskUITests" */;
+			buildPhases = (
+				95E6753E1D23DC490035EB17 /* Sources */,
+				95E6753F1D23DC490035EB17 /* Frameworks */,
+				95E675401D23DC490035EB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95E675441D23DC490035EB17 /* PBXTargetDependency */,
+			);
+			name = iMail_CloudmagicTaskUITests;
+			productName = iMail_CloudmagicTaskUITests;
+			productReference = 95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95E6751B1D23DC490035EB17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sumit Mukhija";
+				TargetAttributes = {
+					95E675221D23DC490035EB17 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					95E675361D23DC490035EB17 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 95E675221D23DC490035EB17;
+					};
+					95E675411D23DC490035EB17 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 95E675221D23DC490035EB17;
+					};
+				};
+			};
+			buildConfigurationList = 95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail_CloudmagicTask" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95E6751A1D23DC490035EB17;
+			productRefGroup = 95E675241D23DC490035EB17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95E675221D23DC490035EB17 /* iMail_CloudmagicTask */,
+				95E675361D23DC490035EB17 /* iMail_CloudmagicTaskTests */,
+				95E675411D23DC490035EB17 /* iMail_CloudmagicTaskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95E675211D23DC490035EB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */,
+				95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */,
+				95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E675351D23DC490035EB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E675401D23DC490035EB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95E6751F1D23DC490035EB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95E675291D23DC490035EB17 /* ViewController.swift in Sources */,
+				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E675331D23DC490035EB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95E6753C1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95E6753E1D23DC490035EB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95E675471D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95E675391D23DC490035EB17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95E675221D23DC490035EB17 /* iMail_CloudmagicTask */;
+			targetProxy = 95E675381D23DC490035EB17 /* PBXContainerItemProxy */;
+		};
+		95E675441D23DC490035EB17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95E675221D23DC490035EB17 /* iMail_CloudmagicTask */;
+			targetProxy = 95E675431D23DC490035EB17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95E6752A1D23DC490035EB17 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95E6752B1D23DC490035EB17 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95E675301D23DC490035EB17 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95E675491D23DC490035EB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95E6754A1D23DC490035EB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95E6754C1D23DC490035EB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iMail_CloudmagicTask/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTask";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		95E6754D1D23DC490035EB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iMail_CloudmagicTask/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTask";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		95E6754F1D23DC490035EB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iMail_CloudmagicTaskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail_CloudmagicTask.app/iMail_CloudmagicTask";
+			};
+			name = Debug;
+		};
+		95E675501D23DC490035EB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iMail_CloudmagicTaskTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail_CloudmagicTask.app/iMail_CloudmagicTask";
+			};
+			name = Release;
+		};
+		95E675521D23DC490035EB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iMail_CloudmagicTaskUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iMail_CloudmagicTask;
+			};
+			name = Debug;
+		};
+		95E675531D23DC490035EB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iMail_CloudmagicTaskUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iMail_CloudmagicTask;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail_CloudmagicTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95E675491D23DC490035EB17 /* Debug */,
+				95E6754A1D23DC490035EB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95E6754C1D23DC490035EB17 /* Debug */,
+				95E6754D1D23DC490035EB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95E6754F1D23DC490035EB17 /* Debug */,
+				95E675501D23DC490035EB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95E675521D23DC490035EB17 /* Debug */,
+				95E675531D23DC490035EB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95E6751B1D23DC490035EB17 /* Project object */;
+}
