@@ -14,6 +14,8 @@
 		95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */; };
 		95E6753C1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6753B1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift */; };
 		95E675471D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */; };
+		95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675571D23E0D50035EB17 /* MailContentViewController.swift */; };
+		95E6755B1D23E1540035EB17 /* AppColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6755A1D23E1540035EB17 /* AppColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail_CloudmagicTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMail_CloudmagicTaskUITests.swift; sourceTree = "<group>"; };
 		95E675481D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E675571D23E0D50035EB17 /* MailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailContentViewController.swift; sourceTree = "<group>"; };
+		95E6755A1D23E1540035EB17 /* AppColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,12 @@
 		95E675251D23DC490035EB17 /* iMail_CloudmagicTask */ = {
 			isa = PBXGroup;
 			children = (
+				95E675591D23E14D0035EB17 /* Models */,
+				95E675561D23E07B0035EB17 /* Views */,
 				95E675261D23DC490035EB17 /* AppDelegate.swift */,
+				95E675571D23E0D50035EB17 /* MailContentViewController.swift */,
 				95E675281D23DC490035EB17 /* InboxListViewController.swift */,
-				95E6752A1D23DC490035EB17 /* Main.storyboard */,
 				95E6752D1D23DC490035EB17 /* Assets.xcassets */,
-				95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */,
 				95E675321D23DC490035EB17 /* Info.plist */,
 			);
 			path = iMail_CloudmagicTask;
@@ -123,6 +128,23 @@
 				95E675481D23DC490035EB17 /* Info.plist */,
 			);
 			path = iMail_CloudmagicTaskUITests;
+			sourceTree = "<group>";
+		};
+		95E675561D23E07B0035EB17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95E6752A1D23DC490035EB17 /* Main.storyboard */,
+				95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95E675591D23E14D0035EB17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95E6755A1D23E1540035EB17 /* AppColorTheme.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */,
+				95E6755B1D23E1540035EB17 /* AppColorTheme.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
 			);
@@ -299,6 +323,7 @@
 				95E6752B1D23DC490035EB17 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */ = {
@@ -307,6 +332,7 @@
 				95E675301D23DC490035EB17 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
