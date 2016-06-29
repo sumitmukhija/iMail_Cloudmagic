@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95E675221D23DC490035EB17"
-               BuildableName = "iMail_CloudmagicTask.app"
-               BlueprintName = "iMail_CloudmagicTask"
-               ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+               BuildableName = "iMail.app"
+               BlueprintName = "iMail"
+               ReferencedContainer = "container:iMail.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95E675361D23DC490035EB17"
-               BuildableName = "iMail_CloudmagicTaskTests.xctest"
-               BlueprintName = "iMail_CloudmagicTaskTests"
-               ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+               BuildableName = "iMail.xctest"
+               BlueprintName = "iMailTests"
+               ReferencedContainer = "container:iMail.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95E675411D23DC490035EB17"
-               BuildableName = "iMail_CloudmagicTaskUITests.xctest"
-               BlueprintName = "iMail_CloudmagicTaskUITests"
-               ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+               BuildableName = "iMail.xctest"
+               BlueprintName = "iMailUITests"
+               ReferencedContainer = "container:iMail.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95E675221D23DC490035EB17"
-            BuildableName = "iMail_CloudmagicTask.app"
-            BlueprintName = "iMail_CloudmagicTask"
-            ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+            BuildableName = "iMail.app"
+            BlueprintName = "iMail"
+            ReferencedContainer = "container:iMail.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95E675221D23DC490035EB17"
-            BuildableName = "iMail_CloudmagicTask.app"
-            BlueprintName = "iMail_CloudmagicTask"
-            ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+            BuildableName = "iMail.app"
+            BlueprintName = "iMail"
+            ReferencedContainer = "container:iMail.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95E675221D23DC490035EB17"
-            BuildableName = "iMail_CloudmagicTask.app"
-            BlueprintName = "iMail_CloudmagicTask"
-            ReferencedContainer = "container:iMail_CloudmagicTask.xcodeproj">
+            BuildableName = "iMail.app"
+            BlueprintName = "iMail"
+            ReferencedContainer = "container:iMail.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

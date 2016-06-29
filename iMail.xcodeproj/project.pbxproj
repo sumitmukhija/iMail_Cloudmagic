@@ -36,17 +36,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail_CloudmagicTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E675231D23DC490035EB17 /* iMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E675261D23DC490035EB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95E675281D23DC490035EB17 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		95E6752B1D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95E6752D1D23DC490035EB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E675301D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95E675321D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail_CloudmagicTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E675371D23DC490035EB17 /* iMail.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E6753B1D23DC490035EB17 /* iMail_CloudmagicTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMail_CloudmagicTaskTests.swift; sourceTree = "<group>"; };
 		95E6753D1D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail_CloudmagicTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E675421D23DC490035EB17 /* iMail.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMail.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMail_CloudmagicTaskUITests.swift; sourceTree = "<group>"; };
 		95E675481D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E675571D23E0D50035EB17 /* MailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailContentViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		95E675241D23DC490035EB17 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */,
-				95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */,
-				95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */,
+				95E675231D23DC490035EB17 /* iMail.app */,
+				95E675371D23DC490035EB17 /* iMail.xctest */,
+				95E675421D23DC490035EB17 /* iMail.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95E675221D23DC490035EB17 /* iMail_CloudmagicTask */ = {
+		95E675221D23DC490035EB17 /* iMail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTask" */;
+			buildConfigurationList = 95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail" */;
 			buildPhases = (
 				95E6751F1D23DC490035EB17 /* Sources */,
 				95E675201D23DC490035EB17 /* Frameworks */,
@@ -162,14 +162,14 @@
 			);
 			dependencies = (
 			);
-			name = iMail_CloudmagicTask;
+			name = iMail;
 			productName = iMail_CloudmagicTask;
-			productReference = 95E675231D23DC490035EB17 /* iMail_CloudmagicTask.app */;
+			productReference = 95E675231D23DC490035EB17 /* iMail.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95E675361D23DC490035EB17 /* iMail_CloudmagicTaskTests */ = {
+		95E675361D23DC490035EB17 /* iMailTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskTests" */;
+			buildConfigurationList = 95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailTests" */;
 			buildPhases = (
 				95E675331D23DC490035EB17 /* Sources */,
 				95E675341D23DC490035EB17 /* Frameworks */,
@@ -180,14 +180,14 @@
 			dependencies = (
 				95E675391D23DC490035EB17 /* PBXTargetDependency */,
 			);
-			name = iMail_CloudmagicTaskTests;
+			name = iMailTests;
 			productName = iMail_CloudmagicTaskTests;
-			productReference = 95E675371D23DC490035EB17 /* iMail_CloudmagicTaskTests.xctest */;
+			productReference = 95E675371D23DC490035EB17 /* iMail.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		95E675411D23DC490035EB17 /* iMail_CloudmagicTaskUITests */ = {
+		95E675411D23DC490035EB17 /* iMailUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskUITests" */;
+			buildConfigurationList = 95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailUITests" */;
 			buildPhases = (
 				95E6753E1D23DC490035EB17 /* Sources */,
 				95E6753F1D23DC490035EB17 /* Frameworks */,
@@ -198,9 +198,9 @@
 			dependencies = (
 				95E675441D23DC490035EB17 /* PBXTargetDependency */,
 			);
-			name = iMail_CloudmagicTaskUITests;
+			name = iMailUITests;
 			productName = iMail_CloudmagicTaskUITests;
-			productReference = 95E675421D23DC490035EB17 /* iMail_CloudmagicTaskUITests.xctest */;
+			productReference = 95E675421D23DC490035EB17 /* iMail.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +226,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail_CloudmagicTask" */;
+			buildConfigurationList = 95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -239,9 +239,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95E675221D23DC490035EB17 /* iMail_CloudmagicTask */,
-				95E675361D23DC490035EB17 /* iMail_CloudmagicTaskTests */,
-				95E675411D23DC490035EB17 /* iMail_CloudmagicTaskUITests */,
+				95E675221D23DC490035EB17 /* iMail */,
+				95E675361D23DC490035EB17 /* iMailTests */,
+				95E675411D23DC490035EB17 /* iMailUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,12 +306,12 @@
 /* Begin PBXTargetDependency section */
 		95E675391D23DC490035EB17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95E675221D23DC490035EB17 /* iMail_CloudmagicTask */;
+			target = 95E675221D23DC490035EB17 /* iMail */;
 			targetProxy = 95E675381D23DC490035EB17 /* PBXContainerItemProxy */;
 		};
 		95E675441D23DC490035EB17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95E675221D23DC490035EB17 /* iMail_CloudmagicTask */;
+			target = 95E675221D23DC490035EB17 /* iMail */;
 			targetProxy = 95E675431D23DC490035EB17 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,7 +430,7 @@
 				INFOPLIST_FILE = iMail_CloudmagicTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTask";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMail;
 			};
 			name = Debug;
 		};
@@ -441,7 +441,7 @@
 				INFOPLIST_FILE = iMail_CloudmagicTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTask";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMail;
 			};
 			name = Release;
 		};
@@ -452,8 +452,8 @@
 				INFOPLIST_FILE = iMail_CloudmagicTaskTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail_CloudmagicTask.app/iMail_CloudmagicTask";
+				PRODUCT_NAME = iMail;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail.app/iMail";
 			};
 			name = Debug;
 		};
@@ -464,8 +464,8 @@
 				INFOPLIST_FILE = iMail_CloudmagicTaskTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail_CloudmagicTask.app/iMail_CloudmagicTask";
+				PRODUCT_NAME = iMail;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMail.app/iMail";
 			};
 			name = Release;
 		};
@@ -475,7 +475,7 @@
 				INFOPLIST_FILE = iMail_CloudmagicTaskUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMail;
 				TEST_TARGET_NAME = iMail_CloudmagicTask;
 			};
 			name = Debug;
@@ -486,7 +486,7 @@
 				INFOPLIST_FILE = iMail_CloudmagicTaskUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gizmodrool.iMail-CloudmagicTaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iMail;
 				TEST_TARGET_NAME = iMail_CloudmagicTask;
 			};
 			name = Release;
@@ -494,7 +494,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail_CloudmagicTask" */ = {
+		95E6751E1D23DC490035EB17 /* Build configuration list for PBXProject "iMail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E675491D23DC490035EB17 /* Debug */,
@@ -503,7 +503,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTask" */ = {
+		95E6754B1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E6754C1D23DC490035EB17 /* Debug */,
@@ -511,7 +511,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskTests" */ = {
+		95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E6754F1D23DC490035EB17 /* Debug */,
@@ -519,7 +519,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMail_CloudmagicTaskUITests" */ = {
+		95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E675521D23DC490035EB17 /* Debug */,
