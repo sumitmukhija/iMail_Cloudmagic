@@ -13,6 +13,7 @@ class InboxListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setVisuals()
+        setNavigationBarButtons()
     }
     
     func setVisuals(){
@@ -28,6 +29,40 @@ class InboxListViewController: UIViewController {
     func setNavigationVisualttributes(){
         self.navigationController?.navigationBar.barTintColor = AppColorTheme.themePrimaryColor;
        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+    }
+    
+    func setNavigationBarButtons(){
+        let infoButton = UIButton(type: .Custom)
+        let refreshButton = UIButton(type: .Custom)
+        let sortButton = UIButton(type: .Custom)
+        infoButton.bounds = CGRectMake( 0, 0, AppImages.infoBarButtonImage!.size.width, AppImages.infoBarButtonImage!.size.height)
+        refreshButton.bounds = CGRectMake( 0, 0, AppImages.refreshBarButtonImage!.size.width, AppImages.refreshBarButtonImage!.size.height)
+        sortButton.bounds = CGRectMake( 0, 0, AppImages.sortBarButtonImage!.size.width, AppImages.sortBarButtonImage!.size.height)
+        infoButton.setImage(AppImages.infoBarButtonImage, forState: .Normal)
+        refreshButton.setImage(AppImages.refreshBarButtonImage, forState: .Normal)
+        sortButton.setImage(AppImages.sortBarButtonImage, forState: .Normal)
+        infoButton.addTarget(self, action: #selector(InboxListViewController.infoBarButtonTapped), forControlEvents: .TouchUpInside)
+        refreshButton.addTarget(self, action: #selector(InboxListViewController.refreshBarButtonTapped), forControlEvents: .TouchUpInside)
+        sortButton.addTarget(self, action: #selector(InboxListViewController.sortBarButtonTapped), forControlEvents: .TouchUpInside)
+        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+        let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
+        let sortBarButtonItem = UIBarButtonItem(customView: sortButton)
+        
+        self.navigationItem.leftBarButtonItem = infoBarButtonItem;
+        self.navigationItem.rightBarButtonItems = [refreshBarButtonItem, sortBarButtonItem]
+    
+    }
+    
+    func infoBarButtonTapped(){
+        
+    }
+    
+    func refreshBarButtonTapped(){
+        
+    }
+    
+    func sortBarButtonTapped(){
+        
     }
     
 //    -(void)setNavigationVisualProperties{
