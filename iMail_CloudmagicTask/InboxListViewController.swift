@@ -16,6 +16,7 @@ class InboxListViewController: UIViewController {
         setNavigationBarButtons()
     }
     
+    //MARK: Setting visual properties
     func setVisuals(){
         setViewVisualAttributes()
         setNavigationVisualttributes()
@@ -29,8 +30,12 @@ class InboxListViewController: UIViewController {
     func setNavigationVisualttributes(){
         self.navigationController?.navigationBar.barTintColor = AppColorTheme.themePrimaryColor;
        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.translucent = false
+        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    //MARK: Navigation bar buttons & their actions
     func setNavigationBarButtons(){
         let infoButton = UIButton(type: .Custom)
         let refreshButton = UIButton(type: .Custom)
@@ -47,7 +52,6 @@ class InboxListViewController: UIViewController {
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
         let sortBarButtonItem = UIBarButtonItem(customView: sortButton)
-        
         self.navigationItem.leftBarButtonItem = infoBarButtonItem;
         self.navigationItem.rightBarButtonItems = [refreshBarButtonItem, sortBarButtonItem]
     
@@ -65,28 +69,6 @@ class InboxListViewController: UIViewController {
         
     }
     
-//    -(void)setNavigationVisualProperties{
-//    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
-//    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-//    UIImage *image = [UIImage imageNamed:@"reload"];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );
-//    [button setImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(refreshPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-//    UIImage *infoImage = [UIImage imageNamed:@"info"];
-//    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    infoButton.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );
-//    [infoButton setImage:infoImage forState:UIControlStateNormal];
-//    [infoButton addTarget:self action:@selector(infoPressed:) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-//    
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//    self.title = @"Top News";
-//    self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
-//    self.navigationItem.leftBarButtonItem = infoBarButtonItem;
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
