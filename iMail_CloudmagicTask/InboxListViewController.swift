@@ -10,6 +10,9 @@ import UIKit
 
 class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: Data source
+    var sectionArray = ["The ones you starred","New mails","Already read them!"]
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad() {
@@ -28,7 +31,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     func setViewVisualAttributes(){
         title = "Inbox"
         tableView.separatorStyle = .None
-        view.backgroundColor = AppColorTheme.whiteColor
+        tableView.backgroundView = nil
+        tableView.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
     }
     
     func setSearchTextFieldAttributes(){
@@ -91,8 +96,44 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sectionArray.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionArray[section]
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerBackView = UIView()
+        headerBackView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
+        let headerLabel = UILabel(frame: CGRectMake(0,0,view.frame.size.width,60))
+        headerLabel.backgroundColor = UIColor.clearColor()
+        headerLabel.textAlignment = .Center
+        headerLabel.textColor = AppColorTheme.themePrimaryColor
+        headerLabel.text = sectionArray[section]
+        headerBackView .addSubview(headerLabel)
+        return headerBackView;
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        if section == 0{
+            return 4
+        }
+        else if section == 1{
+            return 2
+        }
+        else if section == 2{
+            return 3
+        }
+        else{
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
@@ -132,4 +173,3 @@ class InboxListItem: UITableViewCell{
         containerView.layer.cornerRadius = 4
     }
 }
-
