@@ -16,6 +16,7 @@
 		95E675471D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */; };
 		95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675571D23E0D50035EB17 /* MailContentViewController.swift */; };
 		95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6755A1D23E1540035EB17 /* AppTheme.swift */; };
+		95F6B9A41D24DF7E003B609D /* hairline.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9A31D24DF7E003B609D /* hairline.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		95E675481D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E675571D23E0D50035EB17 /* MailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailContentViewController.swift; sourceTree = "<group>"; };
 		95E6755A1D23E1540035EB17 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		95F6B9A31D24DF7E003B609D /* hairline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairline.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		95E675591D23E14D0035EB17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				95F6B9A31D24DF7E003B609D /* hairline.png */,
 				95E6755A1D23E1540035EB17 /* AppTheme.swift */,
 			);
 			path = Models;
@@ -254,6 +257,7 @@
 				95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */,
 				95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */,
 				95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */,
+				95F6B9A41D24DF7E003B609D /* hairline.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +516,7 @@
 				95E6754D1D23DC490035EB17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95E6754E1D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				95E675501D23DC490035EB17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95E675511D23DC490035EB17 /* Build configuration list for PBXNativeTarget "iMailUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				95E675531D23DC490035EB17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

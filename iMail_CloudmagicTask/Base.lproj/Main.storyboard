@@ -20,7 +20,32 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-jY-9Sd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hairline.png" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-Iu-aGB">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="12"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEv-sW-GoI">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hEv-sW-GoI" firstAttribute="top" secondItem="fwt-jY-9Sd" secondAttribute="top" id="3El-2P-AF1"/>
+                                    <constraint firstAttribute="bottom" secondItem="U1w-Iu-aGB" secondAttribute="bottom" id="DSo-Q2-Raa"/>
+                                    <constraint firstItem="U1w-Iu-aGB" firstAttribute="centerX" secondItem="fwt-jY-9Sd" secondAttribute="centerX" id="IbG-QQ-VAL"/>
+                                    <constraint firstItem="U1w-Iu-aGB" firstAttribute="width" secondItem="fwt-jY-9Sd" secondAttribute="width" id="LmT-sG-bsp"/>
+                                    <constraint firstItem="hEv-sW-GoI" firstAttribute="centerY" secondItem="fwt-jY-9Sd" secondAttribute="centerY" id="PJr-ic-kwj"/>
+                                    <constraint firstItem="hEv-sW-GoI" firstAttribute="height" secondItem="fwt-jY-9Sd" secondAttribute="height" multiplier="8:10" id="QSo-mh-fj7"/>
+                                    <constraint firstItem="U1w-Iu-aGB" firstAttribute="height" secondItem="fwt-jY-9Sd" secondAttribute="height" multiplier="2:10" id="avy-nC-AMS"/>
+                                    <constraint firstItem="hEv-sW-GoI" firstAttribute="centerX" secondItem="fwt-jY-9Sd" secondAttribute="centerX" id="jKh-5Y-3nM"/>
+                                    <constraint firstItem="hEv-sW-GoI" firstAttribute="width" secondItem="fwt-jY-9Sd" secondAttribute="width" id="qPS-Ha-SUx"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PJr-ic-kwj"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="314"/>
+            <point key="canvasLocation" x="171" y="281"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ehn-ef-edq">
@@ -55,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBa-Xg-jgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="319"/>
+            <point key="canvasLocation" x="595" y="281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRF-5A-069">
@@ -74,7 +99,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMh-ZA-d4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="319"/>
+            <point key="canvasLocation" x="-185" y="274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hairline.png" width="702" height="48"/>
+    </resources>
 </document>
