@@ -93,12 +93,12 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func refreshBarButtonTapped(){
-        
     }
     
     func sortBarButtonTapped(){
         
     }
+    
     //MARK: Loading screen methods
     func showLoadingScreen(){
         loadingView = NSBundle.mainBundle().loadNibNamed("LoadingScreen", owner: self, options: nil)[0] as! UIView
