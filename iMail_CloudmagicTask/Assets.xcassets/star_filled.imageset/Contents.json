@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "star_filled.png",
+      "filename" : "filled.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "star_filled-1.png",
+      "filename" : "filled-1.png",
       "scale" : "2x"
     },
     {

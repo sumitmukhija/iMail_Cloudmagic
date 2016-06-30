@@ -39,9 +39,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     
     func setSearchTextFieldAttributes(){
         let border = CALayer()
-        let borderWidth:CGFloat = 2.0;
+        let borderWidth:CGFloat = 1.0;
         border.borderColor = AppColorTheme.whiteColor.CGColor
-        border.frame = CGRectMake(0, searchTextField.frame.size.height - borderWidth, searchTextField.frame.size.width, searchTextField.frame.size.height)
+        border.frame = CGRectMake(0, searchTextField.frame.size.height - borderWidth, searchTextField.frame.size.width, borderWidth)
         border.borderWidth = borderWidth
         searchTextField.layer.addSublayer(border)
         searchTextField.layer.masksToBounds = true
@@ -68,9 +68,17 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         infoButton.setImage(AppImages.infoBarButtonImage, forState: .Normal)
         refreshButton.setImage(AppImages.refreshBarButtonImage, forState: .Normal)
         sortButton.setImage(AppImages.sortBarButtonImage, forState: .Normal)
-        infoButton.addTarget(self, action: #selector(InboxListViewController.infoBarButtonTapped), forControlEvents: .TouchUpInside)
-        refreshButton.addTarget(self, action: #selector(InboxListViewController.refreshBarButtonTapped), forControlEvents: .TouchUpInside)
-        sortButton.addTarget(self, action: #selector(InboxListViewController.sortBarButtonTapped), forControlEvents: .TouchUpInside)
+        
+        
+        infoButton.addTarget(self, action: "infoBarButtonTapped", forControlEvents: .TouchUpInside)
+        refreshButton.addTarget(self, action:"refreshBarButtonTapped", forControlEvents: .TouchUpInside)
+        sortButton.addTarget(self, action:"sortBarButtonTapped", forControlEvents: .TouchUpInside)
+        
+        
+//        infoButton.addTarget(self,
+//            //#selector(InboxListViewController.infoBarButtonTapped), forControlEvents: .TouchUpInside)
+//        refreshButton.addTarget(self, action: #selector(InboxListViewController.refreshBarButtonTapped), forControlEvents: .TouchUpInside)
+//        sortButton.addTarget(self, action: #selector(InboxListViewController.sortBarButtonTapped), forControlEvents: .TouchUpInside)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
         let sortBarButtonItem = UIBarButtonItem(customView: sortButton)
@@ -127,7 +135,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         let headerLabel = UILabel(frame: CGRectMake(0,0,view.frame.size.width,60))
         headerLabel.backgroundColor = UIColor.clearColor()
         headerLabel.textAlignment = .Center
-        headerLabel.textColor = AppColorTheme.themePrimaryColor
+        headerLabel.textColor = UIColor.lightGrayColor()
         headerLabel.text = sectionArray[section]
         headerBackView .addSubview(headerLabel)
         return headerBackView;

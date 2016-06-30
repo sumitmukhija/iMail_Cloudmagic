@@ -16,7 +16,6 @@
 		95E675471D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675461D23DC490035EB17 /* iMail_CloudmagicTaskUITests.swift */; };
 		95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675571D23E0D50035EB17 /* MailContentViewController.swift */; };
 		95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6755A1D23E1540035EB17 /* AppTheme.swift */; };
-		95F6B9A41D24DF7E003B609D /* hairline.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9A31D24DF7E003B609D /* hairline.png */; };
 		95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A61D24FECB003B609D /* APIManager.swift */; };
 		95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A81D2515FF003B609D /* LoadingScreen.swift */; };
 		95F6B9AB1D25161E003B609D /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9AA1D25161E003B609D /* LoadingScreen.xib */; };
@@ -55,7 +54,6 @@
 		95E675481D23DC490035EB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95E675571D23E0D50035EB17 /* MailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailContentViewController.swift; sourceTree = "<group>"; };
 		95E6755A1D23E1540035EB17 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		95F6B9A31D24DF7E003B609D /* hairline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairline.png; sourceTree = "<group>"; };
 		95F6B9A61D24FECB003B609D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		95F6B9A81D2515FF003B609D /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		95F6B9AA1D25161E003B609D /* LoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 		95E675591D23E14D0035EB17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				95F6B9A31D24DF7E003B609D /* hairline.png */,
 				95E6755A1D23E1540035EB17 /* AppTheme.swift */,
 			);
 			path = Models;
@@ -275,7 +272,6 @@
 				95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */,
 				95F6B9AB1D25161E003B609D /* LoadingScreen.xib in Resources */,
 				95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */,
-				95F6B9A41D24DF7E003B609D /* hairline.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
