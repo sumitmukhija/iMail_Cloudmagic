@@ -10,9 +10,57 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingScreen" customModule="iMail" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JJ-dw-H0E">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUv-Hf-sCP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailAnim_a" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-lv-hMj">
+                            <rect key="frame" x="96" y="176" width="128" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="128" id="lta-ue-y7Z"/>
+                                <constraint firstAttribute="height" constant="128" id="ysM-Zx-NRm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching your mails.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1L-JU-9un">
+                            <rect key="frame" x="0.0" y="347" width="320" height="20"/>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="a1L-JU-9un" firstAttribute="width" secondItem="BUv-Hf-sCP" secondAttribute="width" id="9ao-cv-2HV"/>
+                        <constraint firstItem="a1L-JU-9un" firstAttribute="centerX" secondItem="BUv-Hf-sCP" secondAttribute="centerX" id="PuA-z1-2li"/>
+                        <constraint firstItem="a1L-JU-9un" firstAttribute="top" secondItem="Byv-lv-hMj" secondAttribute="bottom" constant="43" id="bqs-5V-xh6"/>
+                        <constraint firstItem="Byv-lv-hMj" firstAttribute="centerY" secondItem="BUv-Hf-sCP" secondAttribute="centerY" id="e0g-xi-3xt"/>
+                        <constraint firstItem="Byv-lv-hMj" firstAttribute="centerX" secondItem="BUv-Hf-sCP" secondAttribute="centerX" id="eN1-9z-ykM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8JJ-dw-H0E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5Wa-sV-GaO"/>
+                <constraint firstItem="8JJ-dw-H0E" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Bsz-Fo-6St"/>
+                <constraint firstItem="8JJ-dw-H0E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HHU-to-mNE"/>
+                <constraint firstItem="8JJ-dw-H0E" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="YRc-Yg-Ez7"/>
+                <constraint firstItem="BUv-Hf-sCP" firstAttribute="height" secondItem="8JJ-dw-H0E" secondAttribute="height" id="et9-bf-Vyk"/>
+                <constraint firstItem="BUv-Hf-sCP" firstAttribute="centerX" secondItem="8JJ-dw-H0E" secondAttribute="centerX" id="j4b-jG-Zgy"/>
+                <constraint firstItem="BUv-Hf-sCP" firstAttribute="width" secondItem="8JJ-dw-H0E" secondAttribute="width" id="mZN-JD-sj0"/>
+                <constraint firstItem="BUv-Hf-sCP" firstAttribute="centerY" secondItem="8JJ-dw-H0E" secondAttribute="centerY" id="q1O-uR-Bx9"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="220" y="338"/>
+            <connections>
+                <outlet property="emailImage" destination="Byv-lv-hMj" id="X4f-dE-fBD"/>
+            </connections>
+            <point key="canvasLocation" x="267" y="344"/>
         </view>
     </objects>
+    <resources>
+        <image name="emailAnim_a" width="128" height="128"/>
+    </resources>
 </document>

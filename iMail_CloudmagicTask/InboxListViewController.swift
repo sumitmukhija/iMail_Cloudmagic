@@ -13,6 +13,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     //MARK: Data source
     var sectionArray = ["The ones you starred","New mails","Already read them!"]
     
+    var loadingView:UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad() {
@@ -89,6 +90,16 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     
     func sortBarButtonTapped(){
         
+    }
+    //MARK: Loading screen methods
+    func showLoadingScreen(){
+        loadingView = NSBundle.mainBundle().loadNibNamed("LoadingScreen", owner: self, options: nil)[0] as! UIView
+        loadingView.frame = self.view.frame
+        navigationController?.view.addSubview(loadingView)
+    }
+    
+    func hideLoadingScreen(){
+        loadingView.removeFromSuperview()
     }
     
     //MARK: delegate & datasources
