@@ -8,8 +8,9 @@
 
 import UIKit
 
-class InboxListViewController: UIViewController {
+class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +83,34 @@ class InboxListViewController: UIViewController {
         
     }
     
+    //MARK: delegate & datasources
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("inboxListItemId") as! InboxListItem
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 120;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
+
+class InboxListItem: UITableViewCell{
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var senderLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var starButton: UIButton!
 }
 
