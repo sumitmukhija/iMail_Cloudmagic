@@ -27,6 +27,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     
     func setViewVisualAttributes(){
         title = "Inbox"
+        tableView.separatorStyle = .None
         view.backgroundColor = AppColorTheme.whiteColor
     }
     
@@ -112,5 +113,9 @@ class InboxListItem: UITableViewCell{
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
+    
+    override func awakeFromNib() {
+        containerView.layer.cornerRadius = 4
+    }
 }
 
