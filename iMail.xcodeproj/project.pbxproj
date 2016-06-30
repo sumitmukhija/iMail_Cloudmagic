@@ -17,6 +17,7 @@
 		95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675571D23E0D50035EB17 /* MailContentViewController.swift */; };
 		95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6755A1D23E1540035EB17 /* AppTheme.swift */; };
 		95F6B9A41D24DF7E003B609D /* hairline.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9A31D24DF7E003B609D /* hairline.png */; };
+		95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A61D24FECB003B609D /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		95E675571D23E0D50035EB17 /* MailContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailContentViewController.swift; sourceTree = "<group>"; };
 		95E6755A1D23E1540035EB17 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		95F6B9A31D24DF7E003B609D /* hairline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairline.png; sourceTree = "<group>"; };
+		95F6B9A61D24FECB003B609D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		95E675251D23DC490035EB17 /* iMail_CloudmagicTask */ = {
 			isa = PBXGroup;
 			children = (
+				95F6B9A51D24FEB6003B609D /* Managers */,
 				95E675591D23E14D0035EB17 /* Models */,
 				95E675561D23E07B0035EB17 /* Views */,
 				95E675261D23DC490035EB17 /* AppDelegate.swift */,
@@ -148,6 +151,14 @@
 				95E6755A1D23E1540035EB17 /* AppTheme.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		95F6B9A51D24FEB6003B609D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				95F6B9A61D24FECB003B609D /* APIManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 			files = (
 				95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */,
 				95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */,
+				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
 			);

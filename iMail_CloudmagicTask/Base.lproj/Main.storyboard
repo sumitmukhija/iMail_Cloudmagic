@@ -21,9 +21,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-jY-9Sd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hairline.png" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-Iu-aGB">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="12"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEv-sW-GoI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <subviews>
@@ -42,6 +39,9 @@
                                             <constraint firstItem="sgX-k2-Q84" firstAttribute="centerY" secondItem="hEv-sW-GoI" secondAttribute="centerY" id="wzd-Pf-WDE"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hairline.png" translatesAutoresizingMaskIntoConstraints="NO" id="U1w-Iu-aGB">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="12"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
