@@ -18,6 +18,8 @@
 		95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6755A1D23E1540035EB17 /* AppTheme.swift */; };
 		95F6B9A41D24DF7E003B609D /* hairline.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9A31D24DF7E003B609D /* hairline.png */; };
 		95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A61D24FECB003B609D /* APIManager.swift */; };
+		95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A81D2515FF003B609D /* LoadingScreen.swift */; };
+		95F6B9AB1D25161E003B609D /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9AA1D25161E003B609D /* LoadingScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		95E6755A1D23E1540035EB17 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		95F6B9A31D24DF7E003B609D /* hairline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hairline.png; sourceTree = "<group>"; };
 		95F6B9A61D24FECB003B609D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		95F6B9A81D2515FF003B609D /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		95F6B9AA1D25161E003B609D /* LoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			children = (
 				95E6752A1D23DC490035EB17 /* Main.storyboard */,
 				95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */,
+				95F6B9A81D2515FF003B609D /* LoadingScreen.swift */,
+				95F6B9AA1D25161E003B609D /* LoadingScreen.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 			files = (
 				95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */,
 				95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */,
+				95F6B9AB1D25161E003B609D /* LoadingScreen.xib in Resources */,
 				95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */,
 				95F6B9A41D24DF7E003B609D /* hairline.png in Resources */,
 			);
@@ -295,6 +302,7 @@
 			files = (
 				95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */,
 				95E6755B1D23E1540035EB17 /* AppTheme.swift in Sources */,
+				95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */,
 				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
