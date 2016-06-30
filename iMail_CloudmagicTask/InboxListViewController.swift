@@ -73,7 +73,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func infoBarButtonTapped(){
-        
+        let alert = UIAlertController(title: "Disclaimer", message: "This app has been made for the Cloudmagic iOS dev task. The app fetches data using npm from https://github.com/webyog/ios-dev-task. The images used in the project are taken either from iconfinder or random Google searches and I own no rights over them. I haven't used any third parties for the sake of simplicity. For any further queries, feel free to reach out at sumitmukhija@hotmail.com", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cool!", style: .Destructive, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func refreshBarButtonTapped(){
@@ -91,6 +93,18 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5;
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
+        
+        //TODO:
+//     let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -cell.frame.origin.x, cell.frame.origin.y , 0)
+//     cell.layer.transform = cellAnimation
+//     UIView.animateWithDuration(1.0) { 
+//        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, 0, 0, 0)
+//        cell.layer.transform = cellAnimation
+//        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
