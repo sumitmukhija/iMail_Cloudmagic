@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     //MARK: Data source
     var sectionArray = ["The ones you starred","New mails","Already read them!"]
@@ -92,6 +92,11 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     //MARK: delegate & datasources
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
