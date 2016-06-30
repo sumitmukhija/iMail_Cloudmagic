@@ -45,7 +45,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         searchTextField.layer.addSublayer(border)
         searchTextField.layer.masksToBounds = true
         searchTextField.attributedPlaceholder = NSAttributedString(string:"look up for a participant..",
-                                                               attributes:[NSForegroundColorAttributeName: AppColorTheme.whiteColor])
+                                                               attributes:[NSForegroundColorAttributeName: AppColorTheme.themePrimaryBackgroundColor])
     }
     
     func setNavigationVisualttributes(){
