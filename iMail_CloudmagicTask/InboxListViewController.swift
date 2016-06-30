@@ -161,14 +161,11 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
-        
-        //TODO:
-//     let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -cell.frame.origin.x, cell.frame.origin.y , 0)
-//     cell.layer.transform = cellAnimation
-//     UIView.animateWithDuration(1.0) { 
-//        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, 0, 0, 0)
-//        cell.layer.transform = cellAnimation
-//        }
+     let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 0)
+     cell.layer.transform = cellAnimation
+     UIView.animateWithDuration(0.8) {
+        cell.layer.transform = CATransform3DIdentity
+        }
         
     }
     
