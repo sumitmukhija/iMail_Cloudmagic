@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -193,12 +194,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="274"/>
+            <point key="canvasLocation" x="514" y="206"/>
         </scene>
-        <!--View Controller-->
+        <!--Mail Content View Controller-->
         <scene sceneID="ehn-ef-edq">
             <objects>
-                <viewController id="Q89-3J-9kZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mailContentId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q89-3J-9kZ" customClass="MailContentViewController" customModule="iMail" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZSL-3C-y09"/>
                         <viewControllerLayoutGuide type="bottom" id="S4a-UK-rcD"/>
@@ -206,13 +207,89 @@
                     <view key="view" contentMode="scaleToFill" id="5ED-K5-1iM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-dZ-pu6">
+                                <rect key="frame" x="60" y="64" width="260" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vO3-ti-hjs">
+                                <rect key="frame" x="-4" y="64" width="64" height="480"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FUX-3v-se7">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="480"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactThumbnailCellId" id="94E-fX-nNS" customClass="ContactThumbnailTableViewCell" customModule="iMail" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92" width="64" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="94E-fX-nNS" id="bfw-C5-0Sx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMR-Cj-3TR">
+                                                            <rect key="frame" x="11" y="11" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="pMR-Cj-3TR" firstAttribute="centerY" secondItem="bfw-C5-0Sx" secondAttribute="centerY" id="3u5-f5-TYz"/>
+                                                        <constraint firstItem="pMR-Cj-3TR" firstAttribute="centerX" secondItem="bfw-C5-0Sx" secondAttribute="centerX" id="8zj-Zb-YPf"/>
+                                                        <constraint firstItem="pMR-Cj-3TR" firstAttribute="height" secondItem="bfw-C5-0Sx" secondAttribute="height" id="DfI-LQ-3Bt"/>
+                                                        <constraint firstItem="pMR-Cj-3TR" firstAttribute="width" secondItem="bfw-C5-0Sx" secondAttribute="width" id="uVT-OS-QdZ"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="initialCharacterLabel" destination="pMR-Cj-3TR" id="w3b-Gz-8Qt"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Q89-3J-9kZ" id="HCG-d9-lNN"/>
+                                            <outlet property="delegate" destination="Q89-3J-9kZ" id="AoF-4U-v2H"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FUX-3v-se7" firstAttribute="centerY" secondItem="vO3-ti-hjs" secondAttribute="centerY" id="3ob-SE-BsQ"/>
+                                    <constraint firstItem="FUX-3v-se7" firstAttribute="width" secondItem="vO3-ti-hjs" secondAttribute="width" id="5Qb-KV-yZh"/>
+                                    <constraint firstItem="FUX-3v-se7" firstAttribute="height" secondItem="vO3-ti-hjs" secondAttribute="height" id="LdQ-Ak-csr"/>
+                                    <constraint firstItem="FUX-3v-se7" firstAttribute="centerX" secondItem="vO3-ti-hjs" secondAttribute="centerX" id="jCf-ih-ech"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vO3-ti-hjs" firstAttribute="height" secondItem="5ED-K5-1iM" secondAttribute="height" id="5BP-Zg-USB"/>
+                            <constraint firstItem="UDm-dZ-pu6" firstAttribute="top" secondItem="ZSL-3C-y09" secondAttribute="bottom" id="5QZ-vV-1wD"/>
+                            <constraint firstItem="UDm-dZ-pu6" firstAttribute="width" secondItem="5ED-K5-1iM" secondAttribute="width" multiplier="8:10" id="66p-cW-qNH"/>
+                            <constraint firstItem="vO3-ti-hjs" firstAttribute="height" secondItem="5ED-K5-1iM" secondAttribute="height" id="6xW-XA-oY3"/>
+                            <constraint firstItem="vO3-ti-hjs" firstAttribute="leading" secondItem="5ED-K5-1iM" secondAttribute="leadingMargin" constant="-20" id="7dE-TG-kYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UDm-dZ-pu6" secondAttribute="trailing" constant="-20" id="8xd-4l-UW0"/>
+                            <constraint firstItem="UDm-dZ-pu6" firstAttribute="height" secondItem="5ED-K5-1iM" secondAttribute="height" id="FsE-rp-Ymk"/>
+                            <constraint firstItem="UDm-dZ-pu6" firstAttribute="leading" secondItem="vO3-ti-hjs" secondAttribute="trailing" id="bCx-O5-J5l"/>
+                            <constraint firstItem="vO3-ti-hjs" firstAttribute="width" secondItem="5ED-K5-1iM" secondAttribute="width" multiplier="2:10" id="bZ8-C5-tPu"/>
+                            <constraint firstItem="vO3-ti-hjs" firstAttribute="top" secondItem="ZSL-3C-y09" secondAttribute="bottom" id="nfc-6M-zqq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6xW-XA-oY3"/>
+                                <exclude reference="66p-cW-qNH"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contactsThumbnailTableView" destination="FUX-3v-se7" id="7b8-QQ-jx8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBa-Xg-jgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="595" y="281"/>
+            <point key="canvasLocation" x="848" y="206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRF-5A-069">
