@@ -13,6 +13,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     //MARK: Data source
     var sectionArray = ["The ones you starred","Fresh arrivals","Already read them!"]
     
+    @IBOutlet weak var emptyView: UIView!
     var loadingView:UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -35,6 +36,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         tableView.backgroundView = nil
         tableView.backgroundColor = UIColor.clearColor()
         view.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
+        emptyView.hidden = true
     }
     
     func setSearchTextFieldAttributes(){
