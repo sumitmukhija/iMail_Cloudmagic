@@ -119,7 +119,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("mailContentId")
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
