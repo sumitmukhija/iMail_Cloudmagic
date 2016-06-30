@@ -26,7 +26,21 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEv-sW-GoI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-k2-Q84">
+                                                <rect key="frame" x="16" y="5" width="288" height="40"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                            </textField>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.20392156862745098" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="sgX-k2-Q84" firstAttribute="height" secondItem="hEv-sW-GoI" secondAttribute="height" multiplier="8:10" id="ZxZ-Bw-BV5"/>
+                                            <constraint firstItem="sgX-k2-Q84" firstAttribute="centerX" secondItem="hEv-sW-GoI" secondAttribute="centerX" id="f5v-C7-hav"/>
+                                            <constraint firstItem="sgX-k2-Q84" firstAttribute="width" secondItem="hEv-sW-GoI" secondAttribute="width" multiplier="9:10" id="lQB-mU-All"/>
+                                            <constraint firstItem="sgX-k2-Q84" firstAttribute="centerY" secondItem="hEv-sW-GoI" secondAttribute="centerY" id="wzd-Pf-WDE"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -58,6 +72,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="K0T-2g-kaH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="sgX-k2-Q84" id="R6V-Uf-xb1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
