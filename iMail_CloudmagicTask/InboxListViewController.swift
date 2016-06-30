@@ -11,7 +11,7 @@ import UIKit
 class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     //MARK: Data source
-    var sectionArray = ["The ones you starred","New mails","Already read them!"]
+    var sectionArray = ["The ones you starred","Fresh arrivals","Already read them!"]
     
     var loadingView:UIView!
     @IBOutlet weak var tableView: UITableView!
