@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +13,50 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailAnim_a" translatesAutoresizingMaskIntoConstraints="NO" id="HdU-4M-Oe6">
+                                <rect key="frame" x="96" y="176" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="eP4-6M-YZF"/>
+                                    <constraint firstAttribute="width" constant="128" id="qAi-vK-CaB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Cloudmagic iOS dev task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efk-3q-STH">
+                                <rect key="frame" x="0.0" y="447" width="320" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iMail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soY-a8-Gbj">
+                                <rect key="frame" x="0.0" y="50" width="320" height="65"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="47"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HdU-4M-Oe6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="36L-ba-YZN"/>
+                            <constraint firstItem="efk-3q-STH" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Gow-7V-NwM"/>
+                            <constraint firstItem="soY-a8-Gbj" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Ny2-uK-itU"/>
+                            <constraint firstItem="soY-a8-Gbj" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="30" id="XpZ-2v-hIZ"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="efk-3q-STH" secondAttribute="bottom" constant="15" id="Zzd-xc-0r3"/>
+                            <constraint firstItem="soY-a8-Gbj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b6B-Bu-hJI"/>
+                            <constraint firstItem="HdU-4M-Oe6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pIP-I8-5jp"/>
+                            <constraint firstItem="efk-3q-STH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zkV-Ax-At0"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="186" y="417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="emailAnim_a" width="128" height="128"/>
+    </resources>
 </document>
