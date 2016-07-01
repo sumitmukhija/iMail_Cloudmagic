@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+
 class LoadingScreen: UIView {
     @IBOutlet weak var emailImage: UIImageView!
     override func awakeFromNib() {

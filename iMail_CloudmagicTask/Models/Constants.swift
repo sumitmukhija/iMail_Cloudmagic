@@ -19,4 +19,7 @@ struct AppImages {
     static let refreshBarButtonImage = UIImage(named: "refresh")
     static let infoBarButtonImage = UIImage(named: "info")
     static let sortBarButtonImage = UIImage(named: "sort")
+    static let starSelectedButtonImage = UIImage(named: "star_filled")
+    static let starUnselectedButtonImage = UIImage(named: "star_empty")
+    static let noneBackgroundImage = UIImage(named: "none")
 }
