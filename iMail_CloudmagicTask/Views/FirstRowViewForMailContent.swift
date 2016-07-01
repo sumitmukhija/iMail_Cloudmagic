@@ -13,23 +13,32 @@ class FirstRowViewForMailContent:UITableViewCell{
     @IBOutlet var initialImageView: UIImageView!
     @IBOutlet var participantsLabel: UILabel!
     @IBOutlet var subjectLabel: UILabel!
-    
+    @IBOutlet weak var starButton: UIButton!
     @IBOutlet var initialLabel: UILabel!
+    
+    @IBAction func starButtonClicked(sender: UIButton) {
+        if starButton.backgroundImageForState(.Normal) == AppImages.starSelectedButtonImage{
+            starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
+        }
+        else{
+            starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
+        }
+    }
+    
     
     override func awakeFromNib() {
         self.initalView.backgroundColor = AppColorTheme.themePrimaryColor
         self.initalView.layer.cornerRadius = 40;
         self.initalView.layer.borderWidth = 4
         self.initalView.layer.borderColor = AppColorTheme.whiteColor.CGColor
-        initialLabel.text = "S"
         
-      //Since we don't have images, not implementing the images part..
+        //TODO: Since we don't have images, not implementing the images part..
         
         /*
-        initialImageView.backgroundColor = AppColorTheme.themePrimaryColor
-        initialImageView.layer.cornerRadius = 40;
-        initialImageView.layer.borderWidth = 2
-        initialImageView.layer.borderColor = AppColorTheme.whiteColor.CGColor
-*/
+         initialImageView.backgroundColor = AppColorTheme.themePrimaryColor
+         initialImageView.layer.cornerRadius = 40;
+         initialImageView.layer.borderWidth = 2
+         initialImageView.layer.borderColor = AppColorTheme.whiteColor.CGColor
+         */
     }
 }

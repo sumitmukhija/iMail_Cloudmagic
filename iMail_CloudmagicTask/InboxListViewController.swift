@@ -11,10 +11,14 @@ import UIKit
 class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     let apiManager = APIManager()
+    let userDefaultsManager = UserDefaultsManager()
     
     //MARK: Data source
     var sectionArray = ["The ones you starred","Fresh arrivals","Already read them!"]
     var emailListArray:[Email] = []
+    var readMailArray:[Email] = []
+    var unreadMailArray:[Email] = []
+    var starredMailArray:[Email] = []
     
     @IBOutlet weak var emptyView: UIView!
     var loadingView:UIView!
@@ -28,16 +32,46 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     override func viewWillAppear(animated: Bool) {
-        fetchInboxListUsingAPICall();
+        fetchInboxListUsingAPICall()
     }
     
     func fetchInboxListUsingAPICall(){
         showLoadingScreen()
+        flushAllArrays()
         apiManager.getInboxListData { (emailArray) in
+            var i = 0
+            for email in emailArray{
+                self.userDefaultsManager.storeAMail(email as! Email, key: "mail\(i)")
+                i = i+1
+            }
             self.emailListArray = emailArray as! [Email]
+            for mail in self.emailListArray{
+                if mail.isMailRead
+                {
+                    self.readMailArray.append(mail)
+                }
+                else if mail.isMailStarred{
+                    self.starredMailArray.append(mail)
+                }
+                else if mail.isMailRead == false{
+                    self.unreadMailArray.append(mail)
+                }
+            }
+            self.generateEmailArray()
             self.hideLoadingScreen()
             self.tableView.reloadData()
         }
+    }
+    
+    func flushAllArrays(){
+        emailListArray.removeAll()
+        starredMailArray.removeAll()
+        unreadMailArray.removeAll()
+        readMailArray.removeAll()
+    }
+    
+    func generateEmailArray(){
+        self.emailListArray = self.starredMailArray + self.unreadMailArray + self.readMailArray
     }
     
     //MARK: Setting visual properties
@@ -80,22 +114,22 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     func setNavigationBarButtons(){
         let infoButton = UIButton(type: .Custom)
         let refreshButton = UIButton(type: .Custom)
-        let sortButton = UIButton(type: .Custom)
+        let searchButton = UIButton(type: .Custom)
         infoButton.bounds = CGRectMake( 0, 0, AppImages.infoBarButtonImage!.size.width, AppImages.infoBarButtonImage!.size.height)
         refreshButton.bounds = CGRectMake( 0, 0, AppImages.refreshBarButtonImage!.size.width, AppImages.refreshBarButtonImage!.size.height)
-        sortButton.bounds = CGRectMake( 0, 0, AppImages.sortBarButtonImage!.size.width, AppImages.sortBarButtonImage!.size.height)
+        searchButton.bounds = CGRectMake( 0, 0, AppImages.searchBarButtonImage!.size.width, AppImages.searchBarButtonImage!.size.height)
         infoButton.setImage(AppImages.infoBarButtonImage, forState: .Normal)
         refreshButton.setImage(AppImages.refreshBarButtonImage, forState: .Normal)
-        sortButton.setImage(AppImages.sortBarButtonImage, forState: .Normal)
+        searchButton.setImage(AppImages.searchBarButtonImage, forState: .Normal)
         
         
         infoButton.addTarget(self, action: "infoBarButtonTapped", forControlEvents: .TouchUpInside)
         refreshButton.addTarget(self, action:"refreshBarButtonTapped", forControlEvents: .TouchUpInside)
-        sortButton.addTarget(self, action:"sortBarButtonTapped", forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action:"searchBarButtonTapped", forControlEvents: .TouchUpInside)
         
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
-        let sortBarButtonItem = UIBarButtonItem(customView: sortButton)
+        let sortBarButtonItem = UIBarButtonItem(customView: searchButton)
         navigationItem.leftBarButtonItem = infoBarButtonItem;
         navigationItem.rightBarButtonItems = [refreshBarButtonItem, sortBarButtonItem]
     }
@@ -110,7 +144,8 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         fetchInboxListUsingAPICall()
     }
     
-    func sortBarButtonTapped(){
+    func searchBarButtonTapped(){
+        searchTextField.becomeFirstResponder()
         
     }
     
@@ -131,9 +166,27 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         return true
     }
     
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        setupSearchedProductArrayWithSearchText("")
+        return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let enteredString : NSString = textField.text!;
+        let currentlySearchedText = enteredString.stringByReplacingCharactersInRange(range, withString: string).lowercaseString
+        setupSearchedProductArrayWithSearchText(currentlySearchedText)
+        return true
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("mailContentId")
+        let detailViewController = storyBoard.instantiateViewControllerWithIdentifier("mailContentId") as!MailContentViewController
+        detailViewController.concernedMail = emailListArray[indexPath.row]
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
@@ -191,26 +244,67 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         return 0
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete
+        {
+            deleteMail(indexPath.row)
+        }
+    }
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
-        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 90)
-        cell.layer.transform = cellAnimation
-        UIView.animateWithDuration(0.8) {
-            cell.layer.transform = CATransform3DIdentity
-        }
+//        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 90)
+//        cell.layer.transform = cellAnimation
+//        UIView.animateWithDuration(0.8) {
+//            cell.layer.transform = CATransform3DIdentity
+//        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("inboxListItemId") as! InboxListItem
+        let currentMail = emailListArray[indexPath.row]
+        cell.subjectLabel.text = currentMail.mailSubject
+        cell.previewLabel.text = currentMail.mailPreview
+        cell.senderLabel.text = currentMail.peopleInvolved.count == 2 ? currentMail.peopleInvolved.joinWithSeparator(" & "): currentMail.peopleInvolved.joinWithSeparator(",")
+        let starImage = currentMail.isMailStarred ? AppImages.starSelectedButtonImage : AppImages.starUnselectedButtonImage
+        cell.starButton.setBackgroundImage(starImage, forState: .Normal)
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = bgColorView
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 120;
     }
+    
+    func deleteMail(row: Int) -> Void {
+        showLoadingScreen()
+        let currentMail = emailListArray[row]
+        apiManager.deleteMail(currentMail.mailId, completion: { (success) in
+            self.hideLoadingScreen()
+            if success == true
+            {
+                let alert = UIAlertController(title: "Deleted!", message: "The selected email(s) was/were deleted successfully.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Cannot delete", message: "The selected email(s) wasn't/weren't deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }})
+    }
+
+    func setupSearchedProductArrayWithSearchText(searchedText : String)
+    {
+     
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -224,6 +318,14 @@ class InboxListItem: UITableViewCell{
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
     
+    @IBAction func starButtonTapped(sender: AnyObject) {
+        if starButton.backgroundImageForState(.Normal) == AppImages.starSelectedButtonImage{
+            starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
+        }
+        else{
+            starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
+        }
+    }
     override func awakeFromNib() {
         containerView.layer.cornerRadius = 4
     }

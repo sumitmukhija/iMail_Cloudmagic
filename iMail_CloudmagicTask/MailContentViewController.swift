@@ -31,6 +31,7 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
         mailBodyTableView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
         mailBodyTableView.registerNib((UINib(nibName: "FirstRowViewForMailContent", bundle: nil)), forCellReuseIdentifier:"mailHeaderCellId")
         mailBodyTableView.registerNib(UINib(nibName: "SecondRowForMailContent", bundle: nil), forCellReuseIdentifier: "mailContentCellId")
+
     }
     
     //MARK: Error alert
@@ -48,21 +49,35 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
         if concernedMail != nil{
             if indexPath.row == 0{
                 let cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
+                cell.contentView.userInteractionEnabled = false
+                if (concernedMail!.isMailStarred == true){
+                    cell.starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
+                }
+                else{
+                    cell.starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
+                }
                 let nameOne = concernedMail!.peopleInvolved[0]
                 cell.initialLabel.text = "\(nameOne.characters.first!)"
                 cell.subjectLabel.text = concernedMail?.mailSubject
                 cell.participantsLabel.text = concernedMail?.peopleInvolved.joinWithSeparator(",")
                 cell.backgroundColor = UIColor.clearColor()
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.clearColor()
+                cell.selectedBackgroundView = bgColorView
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
                 apiManager.getEmailBodyData((concernedMail?.mailId)!, completion: { (emailBody) in
                     cell.mailBody.text = emailBody
+                    cell.contentView.userInteractionEnabled = false
                     self.mailBodyHeight = self.heightNeededForText(emailBody, withFont: UIFont.systemFontOfSize(20.0), width:tableView.frame.size.width, lineBreakMode: NSLineBreakMode.ByWordWrapping)
                     tableView.reloadData()
                     tableView.setNeedsLayout()
                 })
+                let bgColorView = UIView()
+                bgColorView.backgroundColor = UIColor.clearColor()
+                cell.selectedBackgroundView = bgColorView
                 return cell
             }
         }

@@ -91,7 +91,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inboxListItemId" id="9C3-sr-lRq" customClass="InboxListItem" customModule="iMail" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9C3-sr-lRq" id="hTU-gg-N8y">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="9C3-sr-lRq" id="hTU-gg-N8y">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -123,6 +123,9 @@
                                                                 <constraint firstAttribute="height" constant="50" id="RHO-xc-Kda"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="star_empty"/>
+                                                            <connections>
+                                                                <action selector="starButtonTapped:" destination="9C3-sr-lRq" eventType="touchUpInside" id="eOA-Jw-4MX"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,6 +165,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="7MW-47-UnL"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="COS-cQ-hj5"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
