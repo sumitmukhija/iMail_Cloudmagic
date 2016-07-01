@@ -255,14 +255,6 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         return 60
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
-//        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 90)
-//        cell.layer.transform = cellAnimation
-//        UIView.animateWithDuration(0.8) {
-//            cell.layer.transform = CATransform3DIdentity
-//        }
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("inboxListItemId") as! InboxListItem
         let currentMail = emailListArray[indexPath.row]
