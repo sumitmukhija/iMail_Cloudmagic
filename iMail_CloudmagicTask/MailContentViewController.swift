@@ -11,6 +11,7 @@ import UIKit
 
 class MailContentViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    var concernedMail:Email?=nil
     @IBOutlet weak var mailBodyTableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,18 +30,25 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
         mailBodyTableView.registerNib(UINib(nibName: "SecondRowForMailContent", bundle: nil), forCellReuseIdentifier: "mailContentCellId")
     }
     
+    
+    
     //MARK: Delegates & data sources
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
         if indexPath.row == 0{
-            cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
+            let cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
+            let nameOne = concernedMail!.peopleInvolved[0]
+            cell.initialLabel.text = "\(nameOne.characters.first!)"
+            cell.subjectLabel.text = concernedMail?.mailSubject
+            cell.participantsLabel.text = concernedMail?.peopleInvolved.joinWithSeparator(",")
             cell.backgroundColor = UIColor.clearColor()
+            return cell
         }
         else{
-            cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
+            let cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
+            return cell
         }
-        return cell
+        
         
     }
     
