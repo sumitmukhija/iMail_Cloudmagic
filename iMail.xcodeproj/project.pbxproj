@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95B42E921D26933800C3F54C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B42E911D26933800C3F54C /* UserDefaultsManager.swift */; };
 		95D2ECCE1D263C6A006D148C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; };
 		95D2ECCF1D263C6A006D148C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95D2ECD51D263FA5006D148C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D2ECD41D263FA5006D148C /* Email.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		95B42E911D26933800C3F54C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		95D2ECB61D263C61006D148C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		95D2ECD41D263FA5006D148C /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		95E675231D23DC490035EB17 /* iMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				95F6B9A61D24FECB003B609D /* APIManager.swift */,
+				95B42E911D26933800C3F54C /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */,
 				95E6755B1D23E1540035EB17 /* Constants.swift in Sources */,
 				95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */,
+				95B42E921D26933800C3F54C /* UserDefaultsManager.swift in Sources */,
 				95D2ECD51D263FA5006D148C /* Email.swift in Sources */,
 				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
