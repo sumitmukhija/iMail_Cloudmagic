@@ -11,7 +11,7 @@ import UIKit
 
 class MailContentViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var contactsThumbnailTableView: UITableView!
+    @IBOutlet weak var mailBodyTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,41 +22,40 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
     func setViewVisuals(){
         view.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
         navigationController?.navigationBar.tintColor = AppColorTheme.whiteColor
-        contactsThumbnailTableView.separatorStyle = .None
-        contactsThumbnailTableView.backgroundView = nil
-        contactsThumbnailTableView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
+        mailBodyTableView.separatorStyle = .None
+        mailBodyTableView.backgroundView = nil
+        mailBodyTableView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
+        mailBodyTableView.registerNib((UINib(nibName: "FirstRowViewForMailContent", bundle: nil)), forCellReuseIdentifier:"mailHeaderCellId")
+        mailBodyTableView.registerNib(UINib(nibName: "SecondRowForMailContent", bundle: nil), forCellReuseIdentifier: "mailContentCellId")
     }
     
     //MARK: Delegates & data sources
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ContactThumbnailTableViewCell
-        cell.initialCharacterLabel.textColor = AppColorTheme.themePrimaryColor
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ContactThumbnailTableViewCell
-        cell.initialCharacterLabel.textColor = AppColorTheme.whiteColor
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("contactThumbnailCellId") as! ContactThumbnailTableViewCell
-        cell.initialCharacterLabel.text = "S"
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = AppColorTheme.whiteColor
-        cell.selectedBackgroundView = backgroundView
-        let randomColor = UIColor(red: CGFloat(arc4random()) / CGFloat(UInt32.max), green: CGFloat(arc4random()) / CGFloat(UInt32.max), blue: CGFloat(arc4random()) / CGFloat(UInt32.max), alpha: 1.0)
-        cell.backgroundColor = AppColorTheme.themePrimaryColor
+        var cell = UITableViewCell()
+        if indexPath.row == 0{
+            cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
+            cell.backgroundColor = UIColor.clearColor()
+        }
+        else{
+            cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
+        }
         return cell
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == 0
+        {
+            return 120
+        }
+        else{
+            return 200
+        }
     }
     
-}
-
-class ContactThumbnailTableViewCell: UITableViewCell{
-    @IBOutlet weak var initialCharacterLabel: UILabel!
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2;
+    }
     
 }

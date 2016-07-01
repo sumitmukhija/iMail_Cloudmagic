@@ -1,0 +1,35 @@
+//
+//  FirstRowViewForMailContent.swift
+//  iMail
+//
+//  Created by Sumit Mukhija on 01/07/16.
+//  Copyright © 2016 Sumit Mukhija. All rights reserved.
+//
+
+import UIKit
+
+class FirstRowViewForMailContent:UITableViewCell{
+    @IBOutlet var initalView: UIView!
+    @IBOutlet var initialImageView: UIImageView!
+    @IBOutlet var participantsLabel: UILabel!
+    @IBOutlet var subjectLabel: UILabel!
+    
+    @IBOutlet var initialLabel: UILabel!
+    
+    override func awakeFromNib() {
+        self.initalView.backgroundColor = AppColorTheme.themePrimaryColor
+        self.initalView.layer.cornerRadius = 40;
+        self.initalView.layer.borderWidth = 4
+        self.initalView.layer.borderColor = AppColorTheme.whiteColor.CGColor
+        initialLabel.text = "S"
+        
+      //Since we don't have images, not implementing the images part..
+        
+        /*
+        initialImageView.backgroundColor = AppColorTheme.themePrimaryColor
+        initialImageView.layer.cornerRadius = 40;
+        initialImageView.layer.borderWidth = 2
+        initialImageView.layer.borderColor = AppColorTheme.whiteColor.CGColor
+*/
+    }
+}
