@@ -12,6 +12,9 @@ import UIKit
 class MailContentViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var concernedMail:Email?=nil
+    let apiManager = APIManager()
+    var mailBodyHeight: CGFloat = 0.0
+    
     @IBOutlet weak var mailBodyTableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,40 +33,64 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
         mailBodyTableView.registerNib(UINib(nibName: "SecondRowForMailContent", bundle: nil), forCellReuseIdentifier: "mailContentCellId")
     }
     
+    //MARK: Error alert
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Error!", message: "Looks like the email cannot be loaded. Please check your internet connection or try later.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cool!", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     
     //MARK: Delegates & data sources
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
-            let nameOne = concernedMail!.peopleInvolved[0]
-            cell.initialLabel.text = "\(nameOne.characters.first!)"
-            cell.subjectLabel.text = concernedMail?.mailSubject
-            cell.participantsLabel.text = concernedMail?.peopleInvolved.joinWithSeparator(",")
-            cell.backgroundColor = UIColor.clearColor()
-            return cell
+        
+        if concernedMail != nil{
+            if indexPath.row == 0{
+                let cell = tableView.dequeueReusableCellWithIdentifier("mailHeaderCellId") as! FirstRowViewForMailContent
+                let nameOne = concernedMail!.peopleInvolved[0]
+                cell.initialLabel.text = "\(nameOne.characters.first!)"
+                cell.subjectLabel.text = concernedMail?.mailSubject
+                cell.participantsLabel.text = concernedMail?.peopleInvolved.joinWithSeparator(",")
+                cell.backgroundColor = UIColor.clearColor()
+                return cell
+            }
+            else{
+                let cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
+                apiManager.getEmailBodyData((concernedMail?.mailId)!, completion: { (emailBody) in
+                    cell.mailBody.text = emailBody
+                    self.mailBodyHeight = self.heightNeededForText(emailBody, withFont: UIFont.systemFontOfSize(20.0), width:tableView.frame.size.width, lineBreakMode: NSLineBreakMode.ByWordWrapping)
+                    tableView.reloadData()
+                    tableView.setNeedsLayout()
+                })
+                return cell
+            }
         }
         else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("mailContentCellId") as! SecondRowForMailContent
-            return cell
+            showErrorAlert()
+            return UITableViewCell()
         }
-        
-        
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath == 0
+        if indexPath.row == 0
         {
             return 120
         }
         else{
-            return 200
+            return mailBodyHeight
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2;
+    }
+    
+    func heightNeededForText(text: NSString, withFont font: UIFont, width: CGFloat, lineBreakMode:NSLineBreakMode) -> CGFloat {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = lineBreakMode
+        let size: CGSize = text.boundingRectWithSize(CGSizeMake(width, CGFloat.max), options: [.UsesLineFragmentOrigin, .UsesFontLeading], attributes: [ NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle], context: nil).size
+        return ceil(size.height);
     }
     
 }

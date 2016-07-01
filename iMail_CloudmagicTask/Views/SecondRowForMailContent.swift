@@ -8,5 +8,5 @@
 
 import UIKit
 class SecondRowForMailContent:UITableViewCell{
-    
+    @IBOutlet weak var mailBody: UILabel!
 }
