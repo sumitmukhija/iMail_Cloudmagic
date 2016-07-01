@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  iMail_CloudmagicTask
-// 
+//
 //  Created by Sumit Mukhija on 29/06/16.
 //  Copyright © 2016 Sumit Mukhija. All rights reserved.
 //
@@ -10,17 +10,34 @@ import UIKit
 
 class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    let apiManager = APIManager()
+    
     //MARK: Data source
     var sectionArray = ["The ones you starred","Fresh arrivals","Already read them!"]
+    var emailListArray:[Email] = []
     
     @IBOutlet weak var emptyView: UIView!
     var loadingView:UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setVisuals()
         setNavigationBarButtons()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        fetchInboxListUsingAPICall();
+    }
+    
+    func fetchInboxListUsingAPICall(){
+        showLoadingScreen()
+        apiManager.getInboxListData { (emailArray) in
+            self.emailListArray = emailArray as! [Email]
+            self.hideLoadingScreen()
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: Setting visual properties
@@ -48,12 +65,12 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         searchTextField.layer.addSublayer(border)
         searchTextField.layer.masksToBounds = true
         searchTextField.attributedPlaceholder = NSAttributedString(string:"look up for a participant..",
-                                                               attributes:[NSForegroundColorAttributeName: AppColorTheme.themePrimaryBackgroundColor])
+                                                                   attributes:[NSForegroundColorAttributeName: AppColorTheme.themePrimaryBackgroundColor])
     }
     
     func setNavigationVisualttributes(){
         navigationController?.navigationBar.barTintColor = AppColorTheme.themePrimaryColor;
-       navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         navigationController?.navigationBar.translucent = false
         navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -76,11 +93,6 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         refreshButton.addTarget(self, action:"refreshBarButtonTapped", forControlEvents: .TouchUpInside)
         sortButton.addTarget(self, action:"sortBarButtonTapped", forControlEvents: .TouchUpInside)
         
-        
-//        infoButton.addTarget(self,
-//            //#selector(InboxListViewController.infoBarButtonTapped), forControlEvents: .TouchUpInside)
-//        refreshButton.addTarget(self, action: #selector(InboxListViewController.refreshBarButtonTapped), forControlEvents: .TouchUpInside)
-//        sortButton.addTarget(self, action: #selector(InboxListViewController.sortBarButtonTapped), forControlEvents: .TouchUpInside)
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
         let sortBarButtonItem = UIBarButtonItem(customView: sortButton)
@@ -95,6 +107,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func refreshBarButtonTapped(){
+        fetchInboxListUsingAPICall()
     }
     
     func sortBarButtonTapped(){
@@ -129,6 +142,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return sectionArray[section]
     }
     
@@ -146,18 +160,35 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return 4
-        }
-        else if section == 1{
-            return 2
-        }
-        else if section == 2{
-            return 3
-        }
-        else{
-            return 0
-        }
+            if section == 0{
+                var starredMailCount = 0
+                for mail in emailListArray{
+                    if mail.isMailStarred{
+                        starredMailCount = starredMailCount + 1
+                    }
+                }
+                return starredMailCount
+            }
+            else if section == 1{
+                var readMailCount = 0
+                for mail in emailListArray{
+                    if mail.isMailRead{
+                        readMailCount = readMailCount + 1
+                    }
+                }
+                return readMailCount
+            }
+            else if section == 2{
+                var unreadMailCount = 0
+                for mail in emailListArray{
+                    if(mail.isMailRead == false){
+                        unreadMailCount = unreadMailCount + 1
+                    }
+                }
+                return unreadMailCount
+            }
+        
+        return 0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -165,12 +196,11 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
-     let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 0)
-     cell.layer.transform = cellAnimation
-     UIView.animateWithDuration(0.8) {
-        cell.layer.transform = CATransform3DIdentity
+        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 90)
+        cell.layer.transform = cellAnimation
+        UIView.animateWithDuration(0.8) {
+            cell.layer.transform = CATransform3DIdentity
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
