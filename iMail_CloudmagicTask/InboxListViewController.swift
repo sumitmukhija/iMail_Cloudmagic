@@ -129,9 +129,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         searchButton.setImage(AppImages.searchBarButtonImage, forState: .Normal)
 
 
-        infoButton.addTarget(self, action: "infoBarButtonTapped", forControlEvents: .TouchUpInside)
-        refreshButton.addTarget(self, action:"refreshBarButtonTapped", forControlEvents: .TouchUpInside)
-        searchButton.addTarget(self, action:"searchBarButtonTapped", forControlEvents: .TouchUpInside)
+        infoButton.addTarget(self, action: #selector(InboxListViewController.infoBarButtonTapped), forControlEvents: .TouchUpInside)
+        refreshButton.addTarget(self, action:#selector(InboxListViewController.refreshBarButtonTapped), forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action:#selector(InboxListViewController.searchBarButtonTapped), forControlEvents: .TouchUpInside)
 
         let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
         let refreshBarButtonItem = UIBarButtonItem(customView: refreshButton)
@@ -142,7 +142,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     func infoBarButtonTapped(){
 
-        let alert = AlertManager.getAlert("Disclaimer", body: "This app has been made for the Cloudmagic iOS dev task. . It is made using XCode 7.2. The app fetches data using npm from https://github.com/webyog/ios-dev-task. The images used in the project are taken either from iconfinder or random Google searches and I own no rights over them. I haven't used any third parties except Alamofire for the sake of simplicity. For any further queries, feel free to reach out at sumitmukhija@hotmail.com", cancelButton: "Cool!") as! UIAlertController
+        let alert = AlertManager.getAlert("Disclaimer", body: "This app has been made for the Cloudmagic iOS dev task. . It is made using XCode 7.3. The app fetches data using npm from https://github.com/webyog/ios-dev-task. The images used in the project are taken either from iconfinder or random Google searches and I own no rights over them. I haven't used any third parties except Alamofire for the sake of simplicity. For any further queries, feel free to reach out at sumitmukhija@hotmail.com", cancelButton: "Cool!") as! UIAlertController
         alert.addAction(UIAlertAction(title: "Show Tutorials", style: .Destructive, handler: { (action) in
             self.showTutorials()
         }))
