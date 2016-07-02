@@ -20,7 +20,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     var starredMailArray:[Email] = []
 
     @IBOutlet weak var emptyView: UIView!
-    var loadingView:UIView!
+    var loadingView:LoadingScreen!
     var tutorialView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -32,7 +32,9 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     override func viewWillAppear(animated: Bool) {
-        showTutorials()
+        if NSUserDefaults.standardUserDefaults().boolForKey("areTutorialsShown") != true{
+            showTutorials()
+        }
         fetchInboxFromServer()
     }
 
@@ -158,7 +160,11 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     //MARK: Loading screen methods
     func showLoadingScreen(){
-        loadingView = NSBundle.mainBundle().loadNibNamed("LoadingScreen", owner: self, options: nil)[0] as! UIView
+        loadingView = NSBundle.mainBundle().loadNibNamed("LoadingScreen", owner: self, options: nil)[0] as! LoadingScreen
+        loadingView.takingTooLongClosure = {()in
+            let alert = AlertManager.getAlert("Hold your horses..or don't!", body: "The app currently works on a local server. Make sure, your localhost is up and running. If everything looks fine, try executing it again.", cancelButton: "Okay")
+            self.presentViewController(alert as! UIViewController, animated: true, completion: nil)
+        }
         loadingView.frame = self.view.frame
         navigationController?.view.addSubview(loadingView)
     }
@@ -172,23 +178,38 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         tutorialView = NSBundle.mainBundle().loadNibNamed("TutorialView", owner: self, options: nil)[0] as! UIView
         tutorialView.frame = self.view.frame
         navigationController?.view.addSubview(tutorialView)
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "areTutorialsShown")
     }
 
     //MARK: delegate & datasources
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        return true
-    }
-
-    func textFieldShouldClear(textField: UITextField) -> Bool {
-        setupSearchedProductArrayWithSearchText("")
-        return true
-    }
-
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let enteredString : NSString = textField.text!;
-        let currentlySearchedText = enteredString.stringByReplacingCharactersInRange(range, withString: string).lowercaseString
-        setupSearchedProductArrayWithSearchText(currentlySearchedText)
+        var searchResultArray:[Email] = []
+        let queryString = searchTextField.text!.stringByTrimmingCharactersInSet(
+            NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        )
+        if queryString.characters.count == 0 || emailListArray.count == 0{
+            return false
+        }
+        for mail in emailListArray{
+            for person in mail.peopleInvolved{
+                if person.lowercaseString == queryString.lowercaseString{
+                    if searchResultArray.contains(mail) == false{
+                        searchResultArray.append(mail)
+                    }
+                }
+            }
+        }
+        if searchResultArray.count == 0{
+           let alert =  AlertManager.getAlert("Oops!", body: "Looks like the participant you were searching for hasn't mailed you, YET!", cancelButton: "Okay")
+            presentViewController(alert as! UIViewController, animated: true, completion: nil)
+        }
+        else{
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let searchViewController = storyBoard.instantiateViewControllerWithIdentifier("searchResults") as! SearchResultViewController
+            searchViewController.dataSource = searchResultArray
+            navigationController?.pushViewController(searchViewController, animated: true)
+        }
         return true
     }
 
@@ -208,7 +229,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
             offset = offset + starredMailArray.count + unreadMailArray.count
         }
         let currentMail = emailListArray[indexPath.row + offset]
-        //currentMail.isMailRead = true
+        currentMail.isMailRead = true
         detailViewController.concernedMail = currentMail
         navigationController?.pushViewController(detailViewController, animated: true)
     }
@@ -225,6 +246,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         let headerBackView = UIView()
         headerBackView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
         let headerLabel = UILabel(frame: CGRectMake(0,0,view.frame.size.width,60))
+        headerLabel.font = UIFont(name: "Avenir-Light", size: 15.0)
         headerLabel.backgroundColor = UIColor.clearColor()
         headerLabel.textAlignment = .Center
         headerLabel.textColor = UIColor.lightGrayColor()
@@ -272,16 +294,20 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
             }
             self.viewWillAppear(true)
         }
-        if currentMail.isMailRead{
-            cell.senderLabel.textColor = AppColorTheme.themePrimaryBackgroundColor
-        }
-        else{
-            cell.senderLabel.textColor = UIColor.blackColor()
-        }
         cell.subjectLabel.text = currentMail.mailSubject
         cell.subjectLabel.textColor = AppColorTheme.themePrimaryColor
         cell.previewLabel.text = currentMail.mailPreview
-        cell.senderLabel.text = currentMail.peopleInvolved.count == 2 ? currentMail.peopleInvolved.joinWithSeparator(" & "): currentMail.peopleInvolved.joinWithSeparator(",")
+        let senderString = currentMail.peopleInvolved.count == 2 ? currentMail.peopleInvolved.joinWithSeparator(" & "): currentMail.peopleInvolved.joinWithSeparator(",")
+        if currentMail.isMailRead == false{
+            let font = UIFont(name: "Avenir-Heavy", size: 17.0)
+            cell.senderLabel.font = font
+        }
+        else{
+             let font = UIFont(name: "Avenir-Book", size: 14.0)
+            cell.senderLabel.font = font
+        }
+        cell.senderLabel.text = senderString
+
         let starImage = currentMail.isMailStarred ? AppImages.starSelectedButtonImage : AppImages.starUnselectedButtonImage
         cell.starButton.setBackgroundImage(starImage, forState: .Normal)
         let bgColorView = UIView()
@@ -345,22 +371,5 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-}
-
-class InboxListItem: UITableViewCell{
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var senderLabel: UILabel!
-    @IBOutlet weak var subjectLabel: UILabel!
-    @IBOutlet weak var previewLabel: UILabel!
-    @IBOutlet weak var starButton: UIButton!
-    var starButtonTapAction:((UIButton)->())!
-
-
-    @IBAction func starButtonTapped(sender: UIButton) {
-        starButtonTapAction(sender)
-    }
-    override func awakeFromNib() {
-        containerView.layer.cornerRadius = 4
     }
 }
