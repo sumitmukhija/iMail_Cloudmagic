@@ -137,8 +137,8 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     func infoBarButtonTapped(){
-        let alert = UIAlertController(title: "Disclaimer", message: "This app has been made for the Cloudmagic iOS dev task. . It is made using XCode 7.2. The app fetches data using npm from https://github.com/webyog/ios-dev-task. The images used in the project are taken either from iconfinder or random Google searches and I own no rights over them. I haven't used any third parties except Alamofire for the sake of simplicity. For any further queries, feel free to reach out at sumitmukhija@hotmail.com", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Cool!", style: .Destructive, handler: nil))
+
+        let alert = AlertManager.getAlert("Disclaimer", body: "This app has been made for the Cloudmagic iOS dev task. . It is made using XCode 7.2. The app fetches data using npm from https://github.com/webyog/ios-dev-task. The images used in the project are taken either from iconfinder or random Google searches and I own no rights over them. I haven't used any third parties except Alamofire for the sake of simplicity. For any further queries, feel free to reach out at sumitmukhija@hotmail.com", cancelButton: "cool") as! UIAlertController
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
@@ -315,15 +315,13 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
             self.hideLoadingScreen()
             if success == true
             {
-                let alert = UIAlertController(title: "Deleted!", message: "The selected email(s) was/were deleted successfully.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = AlertManager.getAlert("Success!", body: "The selected email was deleted successfully", cancelButton: "Okay")
+                self.presentViewController(alert as! UIViewController, animated: true, completion: nil)
             }
             else
             {
-                let alert = UIAlertController(title: "Cannot delete", message: "The selected email(s) wasn't/weren't deleted.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = AlertManager.getAlert("Failure!", body: "The selected email wasn't deleted", cancelButton: "Okay")
+                self.presentViewController(alert as! UIViewController, animated: true, completion: nil)
             }})
         tableView.reloadData()
     }
