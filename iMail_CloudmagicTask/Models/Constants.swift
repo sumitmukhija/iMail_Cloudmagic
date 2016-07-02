@@ -22,4 +22,7 @@ struct AppImages {
     static let starSelectedButtonImage = UIImage(named: "star_filled")
     static let starUnselectedButtonImage = UIImage(named: "star_empty")
     static let noneBackgroundImage = UIImage(named: "none")
+    static let tutorialOneImage = UIImage(named: "tut1")
+    static let tutorialTwoImage = UIImage(named: "tut2")
+    static let tutorialThreeImage = UIImage(named: "tut3")
 }

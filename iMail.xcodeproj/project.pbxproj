@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		000F74861D27734300AF5754 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F74851D27734300AF5754 /* AlertManager.swift */; };
+		000F74881D2775FE00AF5754 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F74871D2775FE00AF5754 /* TutorialView.swift */; };
+		000F748A1D27761E00AF5754 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000F74891D27761E00AF5754 /* TutorialView.xib */; };
 		95D2ECCE1D263C6A006D148C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; };
 		95D2ECCF1D263C6A006D148C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95D2ECD51D263FA5006D148C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D2ECD41D263FA5006D148C /* Email.swift */; };
@@ -118,6 +120,8 @@
 
 /* Begin PBXFileReference section */
 		000F74851D27734300AF5754 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		000F74871D2775FE00AF5754 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		000F74891D27761E00AF5754 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		95D2ECB61D263C61006D148C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		95D2ECD41D263FA5006D148C /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		95E675231D23DC490035EB17 /* iMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +253,8 @@
 				FAD5C80E1D2612F10027F70D /* FirstRowViewForMailContent.swift */,
 				FAD5C8101D2616BA0027F70D /* SecondRowForMailContent.swift */,
 				FAD5C8121D2616D90027F70D /* SecondRowForMailContent.xib */,
+				000F74871D2775FE00AF5754 /* TutorialView.swift */,
+				000F74891D27761E00AF5754 /* TutorialView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000F748A1D27761E00AF5754 /* TutorialView.xib in Resources */,
 				FAD5C80D1D2612DE0027F70D /* FirstRowViewForMailContent.xib in Resources */,
 				95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */,
 				95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */,
@@ -472,6 +479,7 @@
 				95E6755B1D23E1540035EB17 /* Constants.swift in Sources */,
 				95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */,
 				95D2ECD51D263FA5006D148C /* Email.swift in Sources */,
+				000F74881D2775FE00AF5754 /* TutorialView.swift in Sources */,
 				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,

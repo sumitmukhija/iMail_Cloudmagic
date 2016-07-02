@@ -21,6 +21,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     @IBOutlet weak var emptyView: UIView!
     var loadingView:UIView!
+    var tutorialView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
 
@@ -31,6 +32,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     override func viewWillAppear(animated: Bool) {
+        showTutorials()
         fetchInboxFromServer()
     }
 
@@ -96,11 +98,11 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         let border = CALayer()
         let borderWidth:CGFloat = 1.0;
         border.borderColor = AppColorTheme.whiteColor.CGColor
-        border.frame = CGRectMake(0, searchTextField.frame.size.height - borderWidth, searchTextField.frame.size.width, borderWidth)
+        border.frame = CGRectMake(searchTextField.frame.origin.x, searchTextField.frame.size.height - borderWidth, searchTextField.frame.size.width, borderWidth)
         border.borderWidth = borderWidth
         searchTextField.layer.addSublayer(border)
         searchTextField.layer.masksToBounds = true
-        searchTextField.attributedPlaceholder = NSAttributedString(string:"look up for a participant..",
+        searchTextField.attributedPlaceholder = NSAttributedString(string:"Look up for a participant..",
                                                                    attributes:[NSForegroundColorAttributeName: AppColorTheme.themePrimaryBackgroundColor])
     }
 
@@ -160,6 +162,13 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     func hideLoadingScreen(){
         loadingView.removeFromSuperview()
+    }
+
+    //MARK: Tutorial screen
+    func showTutorials(){
+        tutorialView = NSBundle.mainBundle().loadNibNamed("TutorialView", owner: self, options: nil)[0] as! UIView
+        tutorialView.frame = self.view.frame
+        navigationController?.view.addSubview(tutorialView)
     }
 
     //MARK: delegate & datasources
