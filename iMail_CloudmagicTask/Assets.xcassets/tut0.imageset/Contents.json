@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "brain_spawn.png",
+      "filename" : "brain_spawn-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "brain_spawn-1.png",
+      "filename" : "brain_spawn-3.png",
       "scale" : "2x"
     },
     {

@@ -16,7 +16,7 @@ class TutorialView: UIView{
     var i = 0
     var swipeGesture: UISwipeGestureRecognizer!
     let tutorialImages = [AppImages.tutorialOneImage, AppImages.tutorialTwoImage, AppImages.tutorialThreeImage]
-    let tutorialTexts = ["Your mail is categorised as starred, unread & read. Swipe from right to left for next tutorial", "You can search directly by tapping on the search bar or the search button", "You can delete or mark a mail as read/unread by swiping it from right to left"]
+    let tutorialTexts = ["Your mail is categorised as starred, unread & read.", "You can search directly by tapping on the search bar or the search button", "You can delete or mark a mail as read/unread by swiping it from right to left"]
 
     override func awakeFromNib() {
         swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(TutorialView.swiped(_:)))
@@ -51,9 +51,9 @@ class TutorialView: UIView{
     }
 
     func setSkipAttribs(){
-        skipButton.layer.cornerRadius = 2
+        skipButton.layer.cornerRadius = 4
         skipButton.layer.borderColor = AppColorTheme.whiteColor.CGColor
-        skipButton.layer.borderWidth = 2
+        skipButton.layer.borderWidth = 1
     }
 
     @IBAction func skipPressed(sender: AnyObject) {
