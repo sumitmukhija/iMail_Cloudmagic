@@ -14,7 +14,9 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
     var concernedMail:Email?=nil
     let apiManager = APIManager()
     var mailBodyHeight: CGFloat = 0.0
-    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var isStarred = false
+
     @IBOutlet weak var mailBodyTableView: UITableView!
     
     override func viewDidLoad() {
@@ -31,7 +33,7 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
         mailBodyTableView.backgroundColor = AppColorTheme.themePrimaryBackgroundColor
         mailBodyTableView.registerNib((UINib(nibName: "FirstRowViewForMailContent", bundle: nil)), forCellReuseIdentifier:"mailHeaderCellId")
         mailBodyTableView.registerNib(UINib(nibName: "SecondRowForMailContent", bundle: nil), forCellReuseIdentifier: "mailContentCellId")
-
+        isStarred = defaults.boolForKey("isStarredForId\(concernedMail!.mailId)")
     }
     
     //MARK: Error alert
@@ -64,6 +66,12 @@ class MailContentViewController:UIViewController, UITableViewDelegate, UITableVi
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor.clearColor()
                 cell.selectedBackgroundView = bgColorView
+                if isStarred == true{
+                    cell.starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
+                }
+                else{
+                    cell.starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
+                }
                 return cell
             }
             else{
