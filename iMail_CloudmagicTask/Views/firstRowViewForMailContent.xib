@@ -50,9 +50,6 @@
                                 <constraint firstAttribute="height" constant="50" id="NVJ-mJ-5tZ"/>
                             </constraints>
                             <state key="normal" backgroundImage="star_empty"/>
-                            <connections>
-                                <action selector="starButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="mQz-85-kFo"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

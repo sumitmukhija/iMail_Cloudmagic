@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -25,8 +25,8 @@
                                 <constraint firstAttribute="height" constant="128" id="ysM-Zx-NRm"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching your mails.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1L-JU-9un">
-                            <rect key="frame" x="0.0" y="347" width="320" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fetching your mails.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1L-JU-9un">
+                            <rect key="frame" x="0.0" y="347" width="320" height="30"/>
                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -41,23 +41,52 @@
                         <constraint firstItem="Byv-lv-hMj" firstAttribute="centerX" secondItem="BUv-Hf-sCP" secondAttribute="centerX" id="eN1-9z-ykM"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcm-ie-Vhw">
+                    <rect key="frame" x="0.0" y="404" width="320" height="30"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Taking too long?">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="12" name="Avenir-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                <integer key="NSUnderline" value="1"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puO-wc-KtP">
+                    <rect key="frame" x="0.0" y="404" width="320" height="30"/>
+                    <connections>
+                        <action selector="takingTooLongPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="OGb-Jb-Fah"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="puO-wc-KtP" firstAttribute="height" secondItem="Dcm-ie-Vhw" secondAttribute="height" id="0p9-2p-FnU"/>
                 <constraint firstItem="8JJ-dw-H0E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5Wa-sV-GaO"/>
+                <constraint firstItem="Dcm-ie-Vhw" firstAttribute="height" secondItem="a1L-JU-9un" secondAttribute="height" id="5b6-pH-Ucc"/>
+                <constraint firstItem="puO-wc-KtP" firstAttribute="leading" secondItem="Dcm-ie-Vhw" secondAttribute="leading" id="A1q-04-14c"/>
                 <constraint firstItem="8JJ-dw-H0E" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Bsz-Fo-6St"/>
+                <constraint firstItem="puO-wc-KtP" firstAttribute="trailing" secondItem="Dcm-ie-Vhw" secondAttribute="trailing" id="F6s-4r-BXI"/>
                 <constraint firstItem="8JJ-dw-H0E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HHU-to-mNE"/>
+                <constraint firstItem="puO-wc-KtP" firstAttribute="width" secondItem="Dcm-ie-Vhw" secondAttribute="width" id="HbP-cH-qqx"/>
+                <constraint firstItem="puO-wc-KtP" firstAttribute="centerY" secondItem="Dcm-ie-Vhw" secondAttribute="centerY" id="Tri-Vv-BY1"/>
                 <constraint firstItem="8JJ-dw-H0E" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="YRc-Yg-Ez7"/>
                 <constraint firstItem="BUv-Hf-sCP" firstAttribute="height" secondItem="8JJ-dw-H0E" secondAttribute="height" id="et9-bf-Vyk"/>
+                <constraint firstItem="Dcm-ie-Vhw" firstAttribute="width" secondItem="a1L-JU-9un" secondAttribute="width" id="gKC-gd-Z6Q"/>
                 <constraint firstItem="BUv-Hf-sCP" firstAttribute="centerX" secondItem="8JJ-dw-H0E" secondAttribute="centerX" id="j4b-jG-Zgy"/>
                 <constraint firstItem="BUv-Hf-sCP" firstAttribute="width" secondItem="8JJ-dw-H0E" secondAttribute="width" id="mZN-JD-sj0"/>
                 <constraint firstItem="BUv-Hf-sCP" firstAttribute="centerY" secondItem="8JJ-dw-H0E" secondAttribute="centerY" id="q1O-uR-Bx9"/>
+                <constraint firstItem="Dcm-ie-Vhw" firstAttribute="centerX" secondItem="BUv-Hf-sCP" secondAttribute="centerX" id="t3j-34-sxo"/>
+                <constraint firstItem="Dcm-ie-Vhw" firstAttribute="top" secondItem="a1L-JU-9un" secondAttribute="bottom" constant="27" id="tbx-YJ-Ofl"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="emailImage" destination="Byv-lv-hMj" id="X4f-dE-fBD"/>
             </connections>
-            <point key="canvasLocation" x="267" y="344"/>
+            <point key="canvasLocation" x="194" y="182"/>
         </view>
     </objects>
     <resources>

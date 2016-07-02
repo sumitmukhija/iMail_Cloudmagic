@@ -12,6 +12,7 @@ import Foundation
 
 class LoadingScreen: UIView {
     @IBOutlet weak var emailImage: UIImageView!
+    var takingTooLongClosure:(()->Void)!
     override func awakeFromNib() {
         scaleUp()
     }
@@ -22,7 +23,10 @@ class LoadingScreen: UIView {
         }) { (success) in
             self.scaleDown()
         }
-
+    }
+    
+    @IBAction func takingTooLongPressed(sender: UIButton) {
+        takingTooLongClosure()
     }
     
     func scaleDown(){
