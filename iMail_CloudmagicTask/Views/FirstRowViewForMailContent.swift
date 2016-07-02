@@ -16,21 +16,13 @@ class FirstRowViewForMailContent:UITableViewCell{
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet var initialLabel: UILabel!
     
-    @IBAction func starButtonClicked(sender: UIButton) {
-        if starButton.backgroundImageForState(.Normal) == AppImages.starSelectedButtonImage{
-            starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
-        }
-        else{
-            starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
-        }
-    }
-    
     
     override func awakeFromNib() {
         self.initalView.backgroundColor = AppColorTheme.themePrimaryColor
         self.initalView.layer.cornerRadius = 40;
         self.initalView.layer.borderWidth = 4
         self.initalView.layer.borderColor = AppColorTheme.whiteColor.CGColor
+        self.starButton.enabled = false
         
         //TODO: Since we don't have images, not implementing the images part..
         
