@@ -10,6 +10,8 @@
 		000F74861D27734300AF5754 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F74851D27734300AF5754 /* AlertManager.swift */; };
 		000F74881D2775FE00AF5754 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F74871D2775FE00AF5754 /* TutorialView.swift */; };
 		000F748A1D27761E00AF5754 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000F74891D27761E00AF5754 /* TutorialView.xib */; };
+		000F748C1D279A5B00AF5754 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F748B1D279A5B00AF5754 /* SearchResultViewController.swift */; };
+		000F748E1D279AE200AF5754 /* InboxListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F748D1D279AE200AF5754 /* InboxListItem.swift */; };
 		95D2ECCE1D263C6A006D148C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; };
 		95D2ECCF1D263C6A006D148C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95D2ECD51D263FA5006D148C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D2ECD41D263FA5006D148C /* Email.swift */; };
@@ -122,6 +124,8 @@
 		000F74851D27734300AF5754 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		000F74871D2775FE00AF5754 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		000F74891D27761E00AF5754 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		000F748B1D279A5B00AF5754 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultViewController.swift; path = Views/SearchResultViewController.swift; sourceTree = "<group>"; };
+		000F748D1D279AE200AF5754 /* InboxListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxListItem.swift; sourceTree = "<group>"; };
 		95D2ECB61D263C61006D148C /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		95D2ECD41D263FA5006D148C /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		95E675231D23DC490035EB17 /* iMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +220,7 @@
 				95E675591D23E14D0035EB17 /* Models */,
 				95E675561D23E07B0035EB17 /* Views */,
 				95E675261D23DC490035EB17 /* AppDelegate.swift */,
+				000F748B1D279A5B00AF5754 /* SearchResultViewController.swift */,
 				95E675571D23E0D50035EB17 /* MailContentViewController.swift */,
 				95E675281D23DC490035EB17 /* InboxListViewController.swift */,
 				95E6752D1D23DC490035EB17 /* Assets.xcassets */,
@@ -255,6 +260,7 @@
 				FAD5C8121D2616D90027F70D /* SecondRowForMailContent.xib */,
 				000F74871D2775FE00AF5754 /* TutorialView.swift */,
 				000F74891D27761E00AF5754 /* TutorialView.xib */,
+				000F748D1D279AE200AF5754 /* InboxListItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,11 +483,13 @@
 				000F74861D27734300AF5754 /* AlertManager.swift in Sources */,
 				95E675581D23E0D50035EB17 /* MailContentViewController.swift in Sources */,
 				95E6755B1D23E1540035EB17 /* Constants.swift in Sources */,
+				000F748E1D279AE200AF5754 /* InboxListItem.swift in Sources */,
 				95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */,
 				95D2ECD51D263FA5006D148C /* Email.swift in Sources */,
 				000F74881D2775FE00AF5754 /* TutorialView.swift in Sources */,
 				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
 				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
+				000F748C1D279A5B00AF5754 /* SearchResultViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
