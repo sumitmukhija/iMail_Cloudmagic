@@ -11,7 +11,6 @@ import UIKit
 class InboxListViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     let apiManager = APIManager()
-    let userDefaultsManager = UserDefaultsManager()
 
     //MARK: Data source
     var sectionArray = ["The ones you starred","Fresh arrivals","Already read them!"]
@@ -32,39 +31,39 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     override func viewWillAppear(animated: Bool) {
-        fetchInboxListUsingAPICall()
+        fetchInboxFromServer()
     }
 
-    func fetchInboxListUsingAPICall(){
+    func fetchInboxFromServer(){
         showLoadingScreen()
         flushAllArrays()
         apiManager.getInboxListData { (emailArray) in
-
-            for element in emailArray{
-                let email = element as! Email
-                self.userDefaultsManager.storeAMail(email , key: "mail\(email.mailId)")
-            }
-            self.emailListArray = emailArray as! [Email]
-            for mail in self.emailListArray{
-                if mail.isMailStarred{
-                    self.starredMailArray.append(mail)
-                }
-                else{
-                    if mail.isMailRead == true
-                    {
-                        self.readMailArray.append(mail)
-                    }
-                    else{
-                        self.unreadMailArray.append(mail)
-                    }
-                }
-
-            }
-            self.generateEmailArray()
+            self.recreateArrayWithAPIArray(emailArray as! [Email])
             self.hideLoadingScreen()
             self.tableView.reloadData()
         }
     }
+
+    func recreateArrayWithAPIArray(emailArray: [Email]){
+         self.emailListArray = emailArray
+        for mail in self.emailListArray{
+            if mail.isMailStarred{
+                self.starredMailArray.append(mail)
+            }
+            else{
+                if mail.isMailRead == true
+                {
+                    self.readMailArray.append(mail)
+                }
+                else{
+                    self.unreadMailArray.append(mail)
+                }
+            }
+
+        }
+        self.generateEmailArray()
+    }
+
 
     func flushAllArrays(){
         emailListArray.removeAll()
@@ -144,7 +143,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     func refreshBarButtonTapped(){
-        fetchInboxListUsingAPICall()
+        fetchInboxFromServer()
     }
 
     func searchBarButtonTapped(){
@@ -197,7 +196,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
             offset = offset + starredMailArray.count + unreadMailArray.count
         }
         let currentMail = emailListArray[indexPath.row + offset]
-
+        //currentMail.isMailRead = true
         detailViewController.concernedMail = currentMail
         navigationController?.pushViewController(detailViewController, animated: true)
     }
@@ -225,67 +224,23 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return starredMailArray.count
-//            for mail in emailListArray{
-//                if mail.isMailStarred{
-//                    starredMailCount = starredMailCount + 1
-//                }
-//            }
-//            return starredMailCount
         }
         else if section == 1{
-//            var unreadMailCount = 0
-//            for mail in emailListArray{
-//                if(mail.isMailRead == false){
-//                    unreadMailCount = unreadMailCount + 1
-//                }
-//            }
             return unreadMailArray.count
         }
         else if section == 2{
-//            var readMailCount = 0
-//            for mail in emailListArray{
-//                if mail.isMailRead{
-//                    readMailCount = readMailCount + 1
-//                }
-//            }
             return readMailArray.count
         }
-
         return 0
-    }
-
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete
-        {
-            deleteMail(indexPath.row)
-        }
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
 
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath){
-        //        let cellAnimation = CATransform3DTranslate(CATransform3DIdentity, -500, 10 , 90)
-        //        cell.layer.transform = cellAnimation
-        //        UIView.animateWithDuration(0.8) {
-        //            cell.layer.transform = CATransform3DIdentity
-        //        }
-    }
-
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("inboxListItemId") as! InboxListItem
         cell.bringSubviewToFront(cell.starButton)
-        cell.starButtonTappedClosure = {(starButton:UIButton) in
-            if starButton.backgroundImageForState(.Normal) == AppImages.starSelectedButtonImage{
-                starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
-                self.emailListArray[indexPath.row].isMailStarred = false
-            }
-            else{
-                starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
-                self.emailListArray[indexPath.row].isMailStarred = true
-            }
-        }
         var offset = 0
         if indexPath.section == 1{
             offset = offset + starredMailArray.count
@@ -293,8 +248,26 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         if indexPath.section == 2{
             offset = offset + starredMailArray.count + unreadMailArray.count
         }
-        let currentMail = emailListArray[indexPath.row + offset]
+        var currentMail = emailListArray[indexPath.row + offset]
+        cell.starButtonTapAction = {(starButton:UIButton) in
+            if starButton.backgroundImageForState(.Normal) == AppImages.starSelectedButtonImage{
+                starButton.setBackgroundImage(AppImages.starUnselectedButtonImage, forState: .Normal)
+                currentMail.isMailStarred = false
+            }
+            else{
+                starButton.setBackgroundImage(AppImages.starSelectedButtonImage, forState: .Normal)
+                currentMail.isMailStarred = true
+            }
+            self.viewWillAppear(true)
+        }
+        if currentMail.isMailRead{
+            cell.senderLabel.textColor = AppColorTheme.themePrimaryBackgroundColor
+        }
+        else{
+            cell.senderLabel.textColor = UIColor.blackColor()
+        }
         cell.subjectLabel.text = currentMail.mailSubject
+        cell.subjectLabel.textColor = AppColorTheme.themePrimaryColor
         cell.previewLabel.text = currentMail.mailPreview
         cell.senderLabel.text = currentMail.peopleInvolved.count == 2 ? currentMail.peopleInvolved.joinWithSeparator(" & "): currentMail.peopleInvolved.joinWithSeparator(",")
         let starImage = currentMail.isMailStarred ? AppImages.starSelectedButtonImage : AppImages.starUnselectedButtonImage
@@ -306,44 +279,28 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
     }
 
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let readUnreadToggleAction = UITableViewRowAction(style: .Normal, title: "unread\n/read") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            var currentMail = self.emailListArray[indexPath.row]
+        let readUnreadToggleAction = UITableViewRowAction(style: .Normal, title: "Read\n/Unread") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            var offset = 0
+            if indexPath.section == 1{
+                offset = offset + self.starredMailArray.count
+            }
+            if indexPath.section == 2{
+                offset = offset + self.starredMailArray.count + self.unreadMailArray.count
+            }
+            var currentMail = self.emailListArray[indexPath.row + offset]
             if currentMail.isMailRead{
                 currentMail.isMailRead = false
-                self.unreadMailArray.append(currentMail)
-                var i = 0
-                for mail in self.readMailArray{
-                    if mail.mailId == currentMail.mailId{
-                        self.readMailArray.removeAtIndex(i)
-                    }
-                    i = i+1
-                }
-                self.emailListArray.removeAll()
-                self.emailListArray = self.starredMailArray + self.unreadMailArray + self.readMailArray
-                tableView.reloadData()
             }
             else{
                 currentMail.isMailRead = true
-                self.readMailArray.append(currentMail)
-                var i = 0
-                for mail in self.unreadMailArray{
-                    if mail.mailId == currentMail.mailId{
-                        self.unreadMailArray.removeAtIndex(i)
-                        break
-                    }
-                    i = i+1
-                }
-                self.emailListArray.removeAll()
-                self.emailListArray = self.starredMailArray + self.unreadMailArray + self.readMailArray
-                tableView.reloadData()
             }
+            self.viewWillAppear(true)
         }
         readUnreadToggleAction.backgroundColor = AppColorTheme.themePrimaryColor
         let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
             self.deleteMail(indexPath.row)
         }
         deleteAction.backgroundColor = UIColor.redColor()
-
         return [readUnreadToggleAction,deleteAction]
     }
 
@@ -376,7 +333,6 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
 
     }
 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -388,11 +344,11 @@ class InboxListItem: UITableViewCell{
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
-    var starButtonTappedClosure:((UIButton)->())!
+    var starButtonTapAction:((UIButton)->())!
 
 
     @IBAction func starButtonTapped(sender: UIButton) {
-        starButtonTappedClosure(sender)
+        starButtonTapAction(sender)
     }
     override func awakeFromNib() {
         containerView.layer.cornerRadius = 4
