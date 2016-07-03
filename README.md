@@ -10,6 +10,9 @@ The application fetches JSON data from the localhost and parses it to the applic
 2. JSON data<br>
 3. iOS 8+<br>
 
+<b>Video</b> <a href = "https://www.youtube.com/watch?v=Z2Q3baPg1Zk">here</a>
+
+
 <b>Screenshots</b><br>
 ![myimage-alt-tag](https://lh3.googleusercontent.com/-58uPTWdfLOg/V3igUMLAFfI/AAAAAAAAHB0/o05ULjjxyGwzue4QCJP4S0oEA4TLumEsgCCo/s512/Simulator%2BScreen%2BShot%2B02-Jul-2016%252C%2B1.23.16%2BPM.png)
 ![myimage-alt-tag](https://lh3.googleusercontent.com/-hiQDprsI2Ws/V3igVfmjlQI/AAAAAAAAHCI/_2daIPNnkcMJ5couRyemXarCYgxVCYTCwCCo/s512/Simulator%2BScreen%2BShot%2B02-Jul-2016%252C%2B1.24.43%2BPM.png)
