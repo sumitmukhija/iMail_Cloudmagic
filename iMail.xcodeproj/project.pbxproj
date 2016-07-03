@@ -16,7 +16,6 @@
 		95D2ECCF1D263C6A006D148C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2ECC11D263C61006D148C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95D2ECD51D263FA5006D148C /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D2ECD41D263FA5006D148C /* Email.swift */; };
 		95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675261D23DC490035EB17 /* AppDelegate.swift */; };
-		95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E675281D23DC490035EB17 /* InboxListViewController.swift */; };
 		95E6752C1D23DC490035EB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752A1D23DC490035EB17 /* Main.storyboard */; };
 		95E6752E1D23DC490035EB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752D1D23DC490035EB17 /* Assets.xcassets */; };
 		95E675311D23DC490035EB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E6752F1D23DC490035EB17 /* LaunchScreen.storyboard */; };
@@ -27,6 +26,7 @@
 		95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A61D24FECB003B609D /* APIManager.swift */; };
 		95F6B9A91D2515FF003B609D /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F6B9A81D2515FF003B609D /* LoadingScreen.swift */; };
 		95F6B9AB1D25161E003B609D /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F6B9AA1D25161E003B609D /* LoadingScreen.xib */; };
+		FAACEBB21D293337004C5AFD /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAACEBB11D293337004C5AFD /* InboxListViewController.swift */; };
 		FAD5C80D1D2612DE0027F70D /* FirstRowViewForMailContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD5C80C1D2612DE0027F70D /* FirstRowViewForMailContent.xib */; };
 		FAD5C80F1D2612F10027F70D /* FirstRowViewForMailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5C80E1D2612F10027F70D /* FirstRowViewForMailContent.swift */; };
 		FAD5C8111D2616BA0027F70D /* SecondRowForMailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5C8101D2616BA0027F70D /* SecondRowForMailContent.swift */; };
@@ -130,7 +130,6 @@
 		95D2ECD41D263FA5006D148C /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		95E675231D23DC490035EB17 /* iMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E675261D23DC490035EB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95E675281D23DC490035EB17 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		95E6752B1D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95E6752D1D23DC490035EB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E675301D23DC490035EB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		95F6B9A61D24FECB003B609D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		95F6B9A81D2515FF003B609D /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		95F6B9AA1D25161E003B609D /* LoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
+		FAACEBB11D293337004C5AFD /* InboxListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		FAD5C80C1D2612DE0027F70D /* FirstRowViewForMailContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstRowViewForMailContent.xib; sourceTree = "<group>"; };
 		FAD5C80E1D2612F10027F70D /* FirstRowViewForMailContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRowViewForMailContent.swift; sourceTree = "<group>"; };
 		FAD5C8101D2616BA0027F70D /* SecondRowForMailContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRowForMailContent.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 				95E675261D23DC490035EB17 /* AppDelegate.swift */,
 				000F748B1D279A5B00AF5754 /* SearchResultViewController.swift */,
 				95E675571D23E0D50035EB17 /* MailContentViewController.swift */,
-				95E675281D23DC490035EB17 /* InboxListViewController.swift */,
+				FAACEBB11D293337004C5AFD /* InboxListViewController.swift */,
 				95E6752D1D23DC490035EB17 /* Assets.xcassets */,
 				95E675321D23DC490035EB17 /* Info.plist */,
 			);
@@ -478,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAACEBB21D293337004C5AFD /* InboxListViewController.swift in Sources */,
 				FAD5C80F1D2612F10027F70D /* FirstRowViewForMailContent.swift in Sources */,
 				FAD5C8111D2616BA0027F70D /* SecondRowForMailContent.swift in Sources */,
 				000F74861D27734300AF5754 /* AlertManager.swift in Sources */,
@@ -488,7 +489,6 @@
 				95D2ECD51D263FA5006D148C /* Email.swift in Sources */,
 				000F74881D2775FE00AF5754 /* TutorialView.swift in Sources */,
 				95F6B9A71D24FECB003B609D /* APIManager.swift in Sources */,
-				95E675291D23DC490035EB17 /* InboxListViewController.swift in Sources */,
 				000F748C1D279A5B00AF5754 /* SearchResultViewController.swift in Sources */,
 				95E675271D23DC490035EB17 /* AppDelegate.swift in Sources */,
 			);

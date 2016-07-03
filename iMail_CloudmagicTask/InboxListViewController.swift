@@ -336,7 +336,15 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         }
         readUnreadToggleAction.backgroundColor = AppColorTheme.themePrimaryColor
         let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-            self.deleteMail(indexPath.row)
+            var offset = 0
+            if indexPath.section == 1{
+                offset = offset + self.starredMailArray.count
+            }
+            if indexPath.section == 2{
+                offset = offset + self.starredMailArray.count + self.unreadMailArray.count
+            }
+            var currentMail = self.emailListArray[indexPath.row + offset]
+            self.deleteMail(currentMail)
         }
         deleteAction.backgroundColor = UIColor.redColor()
         return [readUnreadToggleAction,deleteAction]
@@ -346,11 +354,8 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
         return 120;
     }
 
-    func deleteMail(row: Int) -> Void {
-        showLoadingScreen()
-        let currentMail = emailListArray[row]
-        apiManager.deleteMail(currentMail.mailId, completion: { (success) in
-            self.hideLoadingScreen()
+    func deleteMail(mail: Email) -> Void {
+        apiManager.deleteMail(mail.mailId, completion: { (success) in
             if success == true
             {
                 let alert = AlertManager.getAlert("Success!", body: "The selected email was deleted successfully", cancelButton: "Okay")
@@ -361,12 +366,7 @@ class InboxListViewController: UIViewController,UITableViewDelegate, UITableView
                 let alert = AlertManager.getAlert("Failure!", body: "The selected email wasn't deleted", cancelButton: "Okay")
                 self.presentViewController(alert as! UIViewController, animated: true, completion: nil)
             }})
-        tableView.reloadData()
-    }
-
-    func setupSearchedProductArrayWithSearchText(searchedText : String)
-    {
-
+        self.viewWillAppear(true)
     }
 
     override func didReceiveMemoryWarning() {
