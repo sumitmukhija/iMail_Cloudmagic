@@ -4,6 +4,8 @@ iMail is an iOS application built on XCode 7.3 and exectues on an iPhone or iPod
 <b>What it does</b><br>
 The application fetches JSON data from the localhost and parses it to the application UI. Node.js was used for serving the server purpose. It lets you star/unstar a mail, read/unread a mail, delete a mail, search for mails from a particular sender, It categorises each mail as read, unread and starred.
 
+<b>JSON Data Source used</b><br>
+https://github.com/webyog/ios-dev-task
 
 <b>Dependencies</b><br>
 1. <a href="https://github.com/Alamofire">Alamofire</a><br>
